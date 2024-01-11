@@ -41,3 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 *.sqlite
+/.vs
+/.vs/ngx-polar-chart/v17
+/.vs/ngx-polar-chart/v17/.wsuo
