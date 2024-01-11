@@ -102,6 +102,37 @@
           }
         }
       }
+    },
+    "NgxPolarChart": {
+      "projectType": "library",
+      "root": "projects/ngx-polar-chart",
+      "sourceRoot": "projects/ngx-polar-chart/src",
+      "prefix": "ngx-polar-chart",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-polar-chart/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-polar-chart/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-polar-chart/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-polar-chart/src/test.ts",
+            "tsConfig": "projects/ngx-polar-chart/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-polar-chart/karma.conf.js"
+          }
+        }
+      }
     }
   }
 }
