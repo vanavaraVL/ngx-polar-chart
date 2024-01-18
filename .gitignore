@@ -45,3 +45,4 @@ Thumbs.db
 /.vs/ngx-polar-chart/v17
 /.vs/ngx-polar-chart/v17/.wsuo
 /.vscode/settings.json
+/projects/ngx-polar-chart/node_modules/.bin/csv2json
