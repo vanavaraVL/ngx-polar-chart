@@ -3,5 +3,6 @@
   "dest": "../../dist/ngx-polar-chart",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [ "d3", "moment", "lodash" ]
 }

@@ -1,16 +1,8 @@
-import { NgModule } from '@angular/core';
-import { NgxPolarChartComponent } from './ngx-polar-chart.component';
+import {NgModule} from '@angular/core';
 
-
+import {NgxPolarChartGroupModule} from './ngx-polar-chart-group/ngx-polar-chart-group.module';
 
 @NgModule({
-  declarations: [
-    NgxPolarChartComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    NgxPolarChartComponent
-  ]
+  exports: [NgxPolarChartGroupModule],
 })
-export class NgxPolarChartModule { }
+export class NgxPolarChartModule {}
