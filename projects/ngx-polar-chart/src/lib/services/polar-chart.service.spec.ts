@@ -1,6 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 
-import {PolarChartGroupService} from './polar-chart-group.service';
+import {PolarChartService} from './polar-chart.service';
 import {ConfigureTestBed} from '../../tests/_configureTestBed';
 import {TestServices} from '../../tests/test.services';
 import {NgxDateGroup, NgxSeriesGroup} from '../models/ngx-group-chart.model';
@@ -20,7 +20,7 @@ import {SeriesSingleGroupMock, SeriesTwoGroupsMock} from '../../tests/mocks/grou
 
 describe('group services', () => {
   let services: TestServices;
-  let groupService: PolarChartGroupService;
+  let groupService: PolarChartService;
 
   let groupDateByDaySingleGroupMock: NgxDateGroup;
   let groupDateByMonthSingleGroupMock: NgxDateGroup;

@@ -12,18 +12,18 @@ import {
 } from '@angular/core';
 import {Subscription, combineLatest} from 'rxjs';
 import {tap} from 'rxjs/operators';
-import {PolarChartGroupService} from '../polar-chart-group.service';
 import {GroupDataModel, GroupDataSettingsModel} from '../../models/chart.model';
 import {NgxPolarChartSettings} from '../../models/ngx-group-chart-settings.model';
 import {Builder} from '../../builders/group-builder/group-series-builder/builder';
 import {NgxSeriesGroup} from '../../models/ngx-group-chart.model';
+import { PolarChartService } from '../../services/polar-chart.service';
 
 @Component({
   selector: 'ngx-polar-chart-group-series',
   template: `<div [attr.id]="groupSeriesChartId" #groupSeriesChart></div>`,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PolarChartGroupService],
+  providers: [PolarChartService],
   styles: [],
 })
 export class NgxPolarChartGroupSeriesComponent implements AfterViewInit, OnInit, OnDestroy {
@@ -50,7 +50,7 @@ export class NgxPolarChartGroupSeriesComponent implements AfterViewInit, OnInit,
 
   constructor(
     private changeDetector: ChangeDetectorRef,
-    private groupedChartService: PolarChartGroupService,
+    private groupedChartService: PolarChartService,
     private builder: Builder,
   ) {
     this.groupSeriesChartId = `groupSeriesChart${crypto.randomUUID()}`;

@@ -8,7 +8,7 @@ import {NgxPolarChartSettings} from '../models/ngx-group-chart-settings.model';
 @Injectable({
   providedIn: 'root',
 })
-export class PolarChartGroupService {
+export class PolarChartService {
   private $dateChartData: BehaviorSubject<NgxDateGroup> = new BehaviorSubject<NgxDateGroup>(null!);
   private $seriesChartData: BehaviorSubject<NgxSeriesGroup> = new BehaviorSubject<NgxSeriesGroup>(null!);
 
