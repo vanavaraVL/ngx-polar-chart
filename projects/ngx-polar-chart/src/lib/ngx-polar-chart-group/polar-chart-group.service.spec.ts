@@ -3,7 +3,7 @@ import {TestBed} from '@angular/core/testing';
 import {PolarChartGroupService} from './polar-chart-group.service';
 import {ConfigureTestBed} from '../../tests/_configureTestBed';
 import {TestServices} from '../../tests/test.services';
-import {NgxDateGroup} from '../models/ngx-group-chart.model';
+import {NgxDateGroup, NgxSeriesGroup} from '../models/ngx-group-chart.model';
 import {cloneDeep} from 'lodash';
 import {
   DateSingleGroupGroupedByDayMock,
@@ -16,8 +16,9 @@ import {
 } from '../../tests/mocks/group-date.mock';
 import moment from 'moment';
 import {GroupDataSetModel} from '../models/chart.model';
+import {SeriesSingleGroupMock, SeriesTwoGroupsMock} from '../../tests/mocks/group-series.mock';
 
-describe('NgxPolarChart services', () => {
+describe('group services', () => {
   let services: TestServices;
   let groupService: PolarChartGroupService;
 
@@ -31,13 +32,108 @@ describe('NgxPolarChart services', () => {
 
   let dateNow: Date;
 
+  /*
+    Flatten data (has run in January):
+    {
+       {key: 'Jan`1', 'First group test': 1}
+       {key: 'Jan`2', 'First group test': 2}
+       {key: 'Jan`3', 'First group test': 3}
+    }
+  */
   let resultGroupDateByDayForSingleGroup: GroupDataSetModel;
+
+  /*
+    Flatten data (has run in January):
+    {
+       {key: 'January', 'First group test': 6}       <- sum of all passed values in January
+       {key: 'February', 'First group test': 0}
+       {key: 'March', 'First group test': 0}
+       {key: 'April', 'First group test': 0}
+       {key: 'May', 'First group test': 0}
+       {key: 'June', 'First group test': 0}
+       {key: 'July', 'First group test': 0}
+       {key: 'August', 'First group test': 0}
+       {key: 'September', 'First group test': 0}
+       {key: 'November', 'First group test': 0}
+       {key: 'December', 'First group test': 0}
+    }
+  */
   let resultGroupDateByMonthForSingleGroup: GroupDataSetModel;
+
+  /*
+    Flatten data (has run in 2024):
+    {
+       {key: '2022', 'First group test': 0}
+       {key: '2023', 'First group test': 0}
+       {key: '2024', 'First group test': 6} <- sum of all passed values in 2024
+       {key: '2025', 'First group test': 0}
+       {key: '2026', 'First group test': 0}
+    }
+  */
   let resultGroupDateByYearForSingleGroup: GroupDataSetModel;
 
+  /*
+    Flatten data (has run in January):
+    {
+       {key: 'Jan`1', 'First group test': 1, 'Second group test': 1}
+       {key: 'Jan`2', 'First group test': 2, 'Second group test': 2}
+       {key: 'Jan`3', 'First group test': 3, 'Second group test': 3}
+    }
+  */
   let resultGroupDateByDayForTwoGroups: GroupDataSetModel;
+
+  /*
+    Flatten data (has run in January):
+    {
+       {key: 'January', 'First group test': 6, 'Second group test': 6} <- in each group the sum of values in the certain group
+       {key: 'February', 'First group test': 0, 'Second group test': 0}
+       {key: 'March', 'First group test': 0, 'Second group test': 0}
+       {key: 'April', 'First group test': 0, 'Second group test': 0}
+       {key: 'May', 'First group test': 0, 'Second group test': 0}
+       {key: 'June', 'First group test': 0, 'Second group test': 0}
+       {key: 'July', 'First group test': 0, 'Second group test': 0}
+       {key: 'August', 'First group test': 0, 'Second group test': 0}
+       {key: 'September', 'First group test': 0, 'Second group test': 0}
+       {key: 'November', 'First group test': 0, 'Second group test': 0}
+       {key: 'December', 'First group test': 0, 'Second group test': 0}
+    }
+  */
   let resultGroupDateByMonthForTwoGroups: GroupDataSetModel;
+
+  /*
+    Flatten data (has run in 2024):
+    {
+       {key: '2022', 'First group test': 0, 'Second group test': 0}
+       {key: '2023', 'First group test': 0, 'Second group test': 0}
+       {key: '2024', 'First group test': 6, 'Second group test': 6} <- in each group the sum of values in the certain group
+       {key: '2025', 'First group test': 0, 'Second group test': 0}
+       {key: '2026', 'First group test': 0, 'Second group test': 0}
+    }
+  */
   let resultGroupDateByYearForTwoGroups: GroupDataSetModel;
+
+  let groupSeriesSingleGroupMock: NgxSeriesGroup;
+  let groupSeriesTwoGroupsMock: NgxSeriesGroup;
+
+  /*
+    Flatten data:
+    {
+       {key: 'Test-A', 'First group test': 1}
+       {key: 'Test-B', 'First group test': 2}
+       {key: 'Test-C', 'First group test': 3}
+    }
+  */
+  let resultGroupSeriesSingleGroup: GroupDataSetModel;
+
+  /*
+    Flatten data:
+    {
+       {key: 'A', 'First group test': 1, 'Second group test': 1}
+       {key: 'B', 'First group test': 2, 'Second group test': 2}
+       {key: 'C', 'First group test': 3, 'Second group test': 3}
+    }
+  */
+  let resultGroupSeriesTwoGroups: GroupDataSetModel;
 
   beforeEach(() => {
     ConfigureTestBed();
@@ -53,6 +149,9 @@ describe('NgxPolarChart services', () => {
     groupDateByMonthTwoGroupsMock = cloneDeep(DateTwoGroupsGroupedByMonthMock);
     groupDateByYearTwoGroupsMock = cloneDeep(DateTwoGroupsGroupedByYearMock);
 
+    groupSeriesSingleGroupMock = cloneDeep(SeriesSingleGroupMock);
+    groupSeriesTwoGroupsMock = cloneDeep(SeriesTwoGroupsMock);
+
     resultGroupDateByDayForSingleGroup = groupService.processDateGroup(groupDateByDaySingleGroupMock);
     resultGroupDateByMonthForSingleGroup = groupService.processDateGroup(groupDateByMonthSingleGroupMock);
     resultGroupDateByYearForSingleGroup = groupService.processDateGroup(groupDateByYearSingleGroupMock);
@@ -60,6 +159,9 @@ describe('NgxPolarChart services', () => {
     resultGroupDateByDayForTwoGroups = groupService.processDateGroup(groupDateByDayTwoGroupsMock);
     resultGroupDateByMonthForTwoGroups = groupService.processDateGroup(groupDateByMonthTwoGroupsMock);
     resultGroupDateByYearForTwoGroups = groupService.processDateGroup(groupDateByYearTwoGroupsMock);
+
+    resultGroupSeriesSingleGroup = groupService.processSeriesGroup(groupSeriesSingleGroupMock);
+    resultGroupSeriesTwoGroups = groupService.processSeriesGroup(groupSeriesTwoGroupsMock);
 
     dateNow = now;
   });
@@ -84,7 +186,7 @@ describe('NgxPolarChart services', () => {
     expect(resultGroupDateByDayForTwoGroups.data.length).toEqual(daysInMonth);
   });
 
-  it('processDateGroup() should return filled in flatten dataset with passed values single grou/in each group of two groups', () => {
+  it('processDateGroup() should return filled in flatten dataset with passed values in the single group/in each group of two groups', () => {
     const singleGroup = groupDateByDaySingleGroupMock.groups[0].items;
     const singleGroupName = groupDateByDaySingleGroupMock.groups[0].name;
 
@@ -292,6 +394,41 @@ describe('NgxPolarChart services', () => {
         expect(d[firstGroupName]).toEqual(0);
         expect(d[secondGroupName]).toEqual(0);
       }
+    });
+  });
+
+  it('loadSeriesData() should return flatten dataset for single group/two groups', () => {
+    expect(resultGroupSeriesSingleGroup).not.toBeNull();
+    expect(resultGroupSeriesTwoGroups).not.toBeNull();
+  });
+
+  it('loadSeriesData() should return filled in by dataset by series with non empty keys for single group/two groups', () => {
+    resultGroupSeriesSingleGroup.data.forEach((d) => {
+      expect(d.key).not.toBeNull();
+    });
+
+    resultGroupSeriesTwoGroups.data.forEach((d) => {
+      expect(d.key).not.toBeNull();
+    });
+  });
+
+  it('loadSeriesData() should return filled in flatten dataset by series with passed values in the single group/in each group of two groups', () => {
+    const singleGroupName = groupSeriesSingleGroupMock.groups[0].name;
+
+    resultGroupSeriesSingleGroup.data.forEach((d: any, index) => {
+      expect(d[singleGroupName]).toEqual(groupSeriesSingleGroupMock.groups[0].items[index].value);
+      expect(d.key).toEqual(groupSeriesSingleGroupMock.groups[0].items[index].key);
+    });
+
+    const firstGroupName = groupSeriesTwoGroupsMock.groups[0].name;
+    const secondGroupName = groupSeriesTwoGroupsMock.groups[1].name;
+
+    resultGroupSeriesTwoGroups.data.forEach((d: any, index) => {
+      expect(d[firstGroupName]).toEqual(groupSeriesTwoGroupsMock.groups[0].items[index].value);
+      expect(d[secondGroupName]).toEqual(groupSeriesTwoGroupsMock.groups[1].items[index].value);
+
+      expect(d.key).toEqual(groupSeriesTwoGroupsMock.groups[0].items[index].key);
+      expect(d.key).toEqual(groupSeriesTwoGroupsMock.groups[1].items[index].key);
     });
   });
 });
