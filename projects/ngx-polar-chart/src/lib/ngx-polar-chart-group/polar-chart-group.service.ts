@@ -42,6 +42,7 @@ export class PolarChartGroupService {
     const keyColors: string[] = [];
 
     const storage: Map<string, StorageEntity> = new Map<string, StorageEntity>();
+    const sortedStorage: Map<string, StorageEntity> = new Map<string, StorageEntity>();
 
     const monthTrackHash: Record<number, number> = {};
     const yearTrackHash: Record<number, number> = {};
@@ -109,9 +110,16 @@ export class PolarChartGroupService {
       });
     });
 
-    this.populateMissedKeysAndValues(storage, data.groups.length, monthTrackHash, yearTrackHash, data.groupBy);
+    this.populateMissedKeysAndValues(
+      storage,
+      sortedStorage,
+      data.groups.length,
+      monthTrackHash,
+      yearTrackHash,
+      data.groupBy,
+    );
 
-    const flattenData = this.makeFlattenArray(storage, keys);
+    const flattenData = this.makeFlattenArray(sortedStorage, keys);
 
     return {
       data: flattenData,
@@ -188,6 +196,7 @@ export class PolarChartGroupService {
 
   private populateMissedKeysAndValues(
     storage: Map<string, StorageEntity>,
+    sortedStorage: Map<string, StorageEntity>,
     totalGroupsCount: number,
     monthTrackHash: Record<number, number>,
     yearTrackHash: Record<number, number>,
@@ -201,7 +210,7 @@ export class PolarChartGroupService {
         const rangeOfMonths = moment.months();
 
         rangeOfMonths.forEach((m) => {
-          this.initializeValuesForKey(m, totalGroupsCount, storage, () => undefined);
+          this.initializeValuesForKey(m, totalGroupsCount, storage, sortedStorage, () => undefined);
         });
         break;
       case NgxGroupBy.year:
@@ -214,7 +223,7 @@ export class PolarChartGroupService {
         for (let i = minYear - rangeYear; i <= maxYear + rangeYear; i++) {
           const keyFormat = `${i}`;
 
-          this.initializeValuesForKey(keyFormat, totalGroupsCount, storage, () => undefined);
+          this.initializeValuesForKey(keyFormat, totalGroupsCount, storage, sortedStorage, () => undefined);
         }
 
         break;
@@ -229,7 +238,7 @@ export class PolarChartGroupService {
 
           const keyFormat = currentDate.format('MMM`D');
 
-          this.initializeValuesForKey(keyFormat, totalGroupsCount, storage, () => ({
+          this.initializeValuesForKey(keyFormat, totalGroupsCount, storage, sortedStorage, () => ({
             dayOfWeek: moment(new Date(year, month, i)).weekday(),
             dayOfWeekName: moment(new Date(year, month, i)).format('dd'),
           }));
@@ -258,7 +267,7 @@ export class PolarChartGroupService {
       storage.set(key, storageEntity);
     }
 
-    this.initializeValuesForKey(key, totalGroupsCount, storage, getAdditionInfo, (items) => {
+    this.initializeValuesForKey(key, totalGroupsCount, storage, null, getAdditionInfo, (items) => {
       items[indexGroupItem] = value;
     });
   }
@@ -267,10 +276,15 @@ export class PolarChartGroupService {
     key: string,
     totalGroupsCount: number,
     storage: Map<string, StorageEntity>,
+    sortedStorage: Map<string, StorageEntity> | null,
     getAdditionInfo: () => StorageEntityAdditionInfo | undefined,
     setValue?: (items: number[]) => void,
   ): void {
-    if (!storage.has(key)) {
+    if (!!sortedStorage && storage.has(key)) {
+      const storageValue = storage.get(key);
+
+      sortedStorage.set(key, storageValue!);
+    } else if (!storage.has(key)) {
       const currentValues: number[] = [...Array(totalGroupsCount)].map((_) => 0);
 
       if (!!setValue) {
@@ -283,6 +297,10 @@ export class PolarChartGroupService {
       };
 
       storage.set(key, storageEntity);
+
+      if (!!sortedStorage) {
+        sortedStorage.set(key, storageEntity);
+      }
     }
   }
 }
