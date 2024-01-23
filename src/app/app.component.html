@@ -5,80 +5,81 @@
 <ng-template #content>
   <div class="container">
     <div class="sample-container">
+      <p>Polar chart (single group) grouped by date of current month. Turn off highlight</p>
+      <ngx-polar-chart-group-date [chartData]="dateSingleDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group-date>
+    </div>
+
+    <div class="sample-container">
       <p>Polar chart (single group) grouped by date of current month. Default settings</p>
       <ng-container [ngTemplateOutlet]="settingsDays"></ng-container>
       <ngx-polar-chart-group-date [chartData]="dateSingleDataSet"></ngx-polar-chart-group-date>
     </div>
 
-    <div class="sample-container">
-      <p>Polar chart (single group) grouped by date of current month. Turn off highlight</p>
-      <ngx-polar-chart-group-date [chartData]="dateSingleDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group-date>
-    </div>
   </div>
 
   <div class="container">
+    <div class="sample-container">
+      <p>Polar chart (single group) grouped by series (e.g. [P-1...P-45]). Turn off highlight</p>
+      <ngx-polar-chart-group-series [chartData]="seriesSingleDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group-series>
+    </div>
+
     <div class="sample-container">
       <p>Polar chart (single group) grouped by series (e.g. [P-1...P-45]). Default settings</p>
       <ng-container [ngTemplateOutlet]="settings"></ng-container>
       <ngx-polar-chart-group-series [chartData]="seriesSingleDataSet"></ngx-polar-chart-group-series>
     </div>
-
-    <div class="sample-container">
-      <p>Polar chart (single group) grouped by series (e.g. [P-1...P-45]). Turn off highlight</p>
-      <ngx-polar-chart-group-series [chartData]="seriesSingleDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group-series>
-    </div>
   </div>
 
   <div class="container">
+    <div class="sample-container">
+      <p>Polar chart (two groups) grouped by date of current month. Turn off highlight</p>
+      <ngx-polar-chart-group-date [chartData]="dateDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group-date>
+    </div>
+
     <div class="sample-container">
       <p>Polar chart (two groups) grouped by date of current month. Default settings</p>
       <ng-container [ngTemplateOutlet]="settingsDays"></ng-container>
       <ngx-polar-chart-group-date [chartData]="dateDataSet"></ngx-polar-chart-group-date>
     </div>
-
-    <div class="sample-container">
-      <p>Polar chart (two groups) grouped by date of current month. Turn off highlight</p>
-      <ngx-polar-chart-group-date [chartData]="dateDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group-date>
-    </div>
   </div>
 
   <div class="container">
+    <div class="sample-container">
+      <p>Polar chart (two groups) grouped by series (e.g. [P-1...P-45]). Turn off highlight</p>
+      <ngx-polar-chart-group-series [chartData]="seriesDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group-series>
+    </div>
+
     <div class="sample-container">
       <p>Polar chart (two groups) grouped by series (e.g. [P-1...P-45]). Default settings</p>
       <ng-container [ngTemplateOutlet]="settingsDays"></ng-container>
       <ngx-polar-chart-group-series [chartData]="seriesDataSet"></ngx-polar-chart-group-series>
     </div>
-
-    <div class="sample-container">
-      <p>Polar chart (two groups) grouped by series (e.g. [P-1...P-45]). Turn off highlight</p>
-      <ngx-polar-chart-group-series [chartData]="seriesDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group-series>
-    </div>
   </div>
 
   <div class="container">
+    <div class="sample-container">
+      <p>Polar chart (two groups) grouped by month of current year. Turn off highlight</p>
+      <ngx-polar-chart-group-date [chartData]="dateDataSetByMonth" [chartSettings]="customSettings"></ngx-polar-chart-group-date>
+    </div>
+
     <div class="sample-container">
       <p>Polar chart (two groups) grouped by month of current year. Default settings</p>
       <ng-container [ngTemplateOutlet]="settings"></ng-container>
       <ngx-polar-chart-group-date [chartData]="dateDataSetByMonth"></ngx-polar-chart-group-date>
     </div>
-
-    <div class="sample-container">
-      <p>Polar chart (two groups) grouped by month of current year. Turn off highlight</p>
-      <ngx-polar-chart-group-date [chartData]="dateDataSetByMonth" [chartSettings]="customSettings"></ngx-polar-chart-group-date>
-    </div>
   </div>
 
   <div class="container">
     <div class="sample-container">
-      <p>Polar chart (two groups) grouped by year. Default settings</p>
-      <ng-container [ngTemplateOutlet]="settings"></ng-container>
-      <ngx-polar-chart-group-date [chartData]="dateDataSetByYear"></ngx-polar-chart-group-date>
-    </div>
-
-    <div class="sample-container">
       <p>Polar chart (two groups) grouped by year. Turn off highlight</p>
       <ngx-polar-chart-group-date [chartData]="dateDataSetByYear" [chartSettings]="customSettings"></ngx-polar-chart-group-date>
     </div>
+  </div>
+
+  <div class="sample-container">
+    <p>Polar chart (two groups) grouped by year. Default settings</p>
+    <ng-container [ngTemplateOutlet]="settings"></ng-container>
+    <ngx-polar-chart-group-date [chartData]="dateDataSetByYear"></ngx-polar-chart-group-date>
   </div>
 </ng-template>
 
