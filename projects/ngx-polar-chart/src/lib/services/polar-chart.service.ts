@@ -2,7 +2,12 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {NgxChartData, NgxDateGroup, NgxGroupBy, NgxSeriesGroup} from '../models/ngx-group-chart.model';
 import moment from 'moment';
-import {GroupDataSetModel, GroupDataModel, StorageEntity, StorageEntityAdditionInfo} from '../models/chart.model';
+import {
+  ChartDataSetModel,
+  ChartDataModel,
+  ChartStorageEntityModel,
+  ChartStorageAdditionInfoModel,
+} from '../models/chart.model';
 import {NgxPolarChartSettings} from '../models/ngx-group-chart-settings.model';
 import {isNgxDate, isNgxString} from '../common/polar-chart-common.utils';
 
@@ -44,14 +49,14 @@ export class PolarChartService {
     this.$chartSettings.next(chartSettings);
   }
 
-  public processDateGroup(data: NgxDateGroup, locale?: string): GroupDataSetModel {
+  public processDateGroup(data: NgxDateGroup, locale?: string): ChartDataSetModel {
     moment.locale(locale ?? this.defaultLocale);
 
     const keys: string[] = [];
     const keyColors: string[] = [];
 
-    const storage: Map<string, StorageEntity> = new Map<string, StorageEntity>();
-    const sortedStorage: Map<string, StorageEntity> = new Map<string, StorageEntity>();
+    const storage: Map<string, ChartStorageEntityModel> = new Map<string, ChartStorageEntityModel>();
+    const sortedStorage: Map<string, ChartStorageEntityModel> = new Map<string, ChartStorageEntityModel>();
 
     const monthTrackHash: Record<number, number> = {};
     const yearTrackHash: Record<number, number> = {};
@@ -139,11 +144,11 @@ export class PolarChartService {
     };
   }
 
-  public processSeriesGroup(data: NgxSeriesGroup): GroupDataSetModel {
+  public processSeriesGroup(data: NgxSeriesGroup): ChartDataSetModel {
     const keys: string[] = [];
     const keyColors: string[] = [];
 
-    const storage: Map<string, StorageEntity> = new Map<string, StorageEntity>();
+    const storage: Map<string, ChartStorageEntityModel> = new Map<string, ChartStorageEntityModel>();
 
     data.groups.forEach((groupItem, groupItemIndex) => {
       keys.push(groupItem.name);
@@ -180,12 +185,12 @@ export class PolarChartService {
     };
   }
 
-  private makeFlattenArray(storage: Map<string, StorageEntity>, keys: string[]): GroupDataModel[] {
-    const flattenData: GroupDataModel[] = Array.from(storage, (entry) => {
-      const entity: StorageEntity = entry[1];
+  private makeFlattenArray(storage: Map<string, ChartStorageEntityModel>, keys: string[]): ChartDataModel[] {
+    const flattenData: ChartDataModel[] = Array.from(storage, (entry) => {
+      const entity: ChartStorageEntityModel = entry[1];
       const key: string = entry[0];
 
-      const resultObject: GroupDataModel = {
+      const resultObject: ChartDataModel = {
         key: key,
         dayOfWeek: entity.additionInfo?.dayOfWeek,
         dayOfWeekName: entity.additionInfo?.dayOfWeekName,
@@ -204,8 +209,8 @@ export class PolarChartService {
   }
 
   private populateMissedKeysAndValues(
-    storage: Map<string, StorageEntity>,
-    sortedStorage: Map<string, StorageEntity>,
+    storage: Map<string, ChartStorageEntityModel>,
+    sortedStorage: Map<string, ChartStorageEntityModel>,
     totalGroupsCount: number,
     monthTrackHash: Record<number, number>,
     yearTrackHash: Record<number, number>,
@@ -258,11 +263,11 @@ export class PolarChartService {
 
   private initializeStorage(
     getKey: () => string,
-    storage: Map<string, StorageEntity>,
+    storage: Map<string, ChartStorageEntityModel>,
     indexGroupItem: number,
     totalGroupsCount: number,
     value: number,
-    getAdditionInfo: () => StorageEntityAdditionInfo | undefined,
+    getAdditionInfo: () => ChartStorageAdditionInfoModel | undefined,
     updateValuesForKey: (currentValues: number[]) => void,
   ): void {
     const key = getKey();
@@ -284,9 +289,9 @@ export class PolarChartService {
   private initializeValuesForKey(
     key: string,
     totalGroupsCount: number,
-    storage: Map<string, StorageEntity>,
-    sortedStorage: Map<string, StorageEntity> | null,
-    getAdditionInfo: () => StorageEntityAdditionInfo | undefined,
+    storage: Map<string, ChartStorageEntityModel>,
+    sortedStorage: Map<string, ChartStorageEntityModel> | null,
+    getAdditionInfo: () => ChartStorageAdditionInfoModel | undefined,
     setValue?: (items: number[]) => void,
   ): void {
     if (!!sortedStorage && storage.has(key)) {
@@ -300,7 +305,7 @@ export class PolarChartService {
         setValue(currentValues);
       }
 
-      const storageEntity: StorageEntity = {
+      const storageEntity: ChartStorageEntityModel = {
         values: currentValues,
         additionInfo: getAdditionInfo(),
       };

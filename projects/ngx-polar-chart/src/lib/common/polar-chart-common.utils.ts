@@ -1,3 +1,4 @@
+import {ChartDataModel} from '../models/chart.model';
 import {NgxChartData, NgxDateGroup, NgxSeriesGroup} from '../models/ngx-group-chart.model';
 
 export function isNgxDate(chartData: NgxChartData): chartData is NgxDateGroup {
@@ -38,4 +39,8 @@ export function isNgxString(chartData: NgxChartData): chartData is NgxSeriesGrou
       }, [])
       .every((t) => typeof t.key === 'string')
   );
+}
+
+export function isDataEmpty(data: ChartDataModel[]): boolean {
+  return data.length === 0;
 }

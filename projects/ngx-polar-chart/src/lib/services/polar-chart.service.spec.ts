@@ -15,7 +15,7 @@ import {
   now,
 } from '../../tests/mocks/group-date.mock';
 import moment from 'moment';
-import {GroupDataSetModel} from '../models/chart.model';
+import {ChartDataSetModel} from '../models/chart.model';
 import {SeriesSingleGroupMock, SeriesTwoGroupsMock} from '../../tests/mocks/group-series.mock';
 
 describe('polar chart services', () => {
@@ -40,7 +40,7 @@ describe('polar chart services', () => {
        {key: 'Jan`3', 'First group test': 3}
     }
   */
-  let resultDateByDayForSingleGroup: GroupDataSetModel;
+  let resultDateByDayForSingleGroup: ChartDataSetModel;
 
   /*
     Flatten data (has run in January):
@@ -58,7 +58,7 @@ describe('polar chart services', () => {
        {key: 'December', 'First group test': 0}
     }
   */
-  let resultDateByMonthForSingleGroup: GroupDataSetModel;
+  let resultDateByMonthForSingleGroup: ChartDataSetModel;
 
   /*
     Flatten data (has run in 2024):
@@ -70,7 +70,7 @@ describe('polar chart services', () => {
        {key: '2026', 'First group test': 0}
     }
   */
-  let resultDateByYearForSingleGroup: GroupDataSetModel;
+  let resultDateByYearForSingleGroup: ChartDataSetModel;
 
   /*
     Flatten data (has run in January):
@@ -80,7 +80,7 @@ describe('polar chart services', () => {
        {key: 'Jan`3', 'First group test': 3, 'Second group test': 3}
     }
   */
-  let resultDateByDayForTwoGroups: GroupDataSetModel;
+  let resultDateByDayForTwoGroups: ChartDataSetModel;
 
   /*
     Flatten data (has run in January):
@@ -98,7 +98,7 @@ describe('polar chart services', () => {
        {key: 'December', 'First group test': 0, 'Second group test': 0}
     }
   */
-  let resultDateByMonthForTwoGroups: GroupDataSetModel;
+  let resultDateByMonthForTwoGroups: ChartDataSetModel;
 
   /*
     Flatten data (has run in 2024):
@@ -110,7 +110,7 @@ describe('polar chart services', () => {
        {key: '2026', 'First group test': 0, 'Second group test': 0}
     }
   */
-  let resultDateByYearForTwoGroups: GroupDataSetModel;
+  let resultDateByYearForTwoGroups: ChartDataSetModel;
 
   let seriesSingleGroupMock: NgxSeriesGroup;
   let seriesTwoGroupsMock: NgxSeriesGroup;
@@ -123,7 +123,7 @@ describe('polar chart services', () => {
        {key: 'Test-C', 'First group test': 3}
     }
   */
-  let resultSeriesSingleGroup: GroupDataSetModel;
+  let resultSeriesSingleGroup: ChartDataSetModel;
 
   /*
     Flatten data:
@@ -133,7 +133,7 @@ describe('polar chart services', () => {
        {key: 'C', 'First group test': 3, 'Second group test': 3}
     }
   */
-  let resultSeriesTwoGroups: GroupDataSetModel;
+  let resultSeriesTwoGroups: ChartDataSetModel;
 
   beforeEach(() => {
     ConfigureTestBed();

@@ -13,7 +13,7 @@ import {
 import {NgxChartData} from '../models/ngx-group-chart.model';
 import {Subscription, combineLatest} from 'rxjs';
 import {tap} from 'rxjs/operators';
-import {GroupDataModel, GroupDataSettingsModel} from '../models/chart.model';
+import {ChartDataModel, ChartDataSettingsModel} from '../models/chart.model';
 import {NgxPolarChartSettings} from '../models/ngx-group-chart-settings.model';
 import {PolarChartService} from '../services/polar-chart.service';
 import {PolarChartFactory, PolarChartIdentity} from '../factory/polar-chart.factory';
@@ -27,9 +27,9 @@ import {PolarChartFactory, PolarChartIdentity} from '../factory/polar-chart.fact
   styles: [],
 })
 export abstract class NgxPolarChartBaseComponent implements AfterViewInit, OnInit, OnDestroy {
-  protected data: GroupDataModel[] = [];
+  protected data: ChartDataModel[] = [];
   protected dataSet: NgxChartData = null!;
-  protected dataSettings: GroupDataSettingsModel = null!;
+  protected dataSettings: ChartDataSettingsModel = null!;
   protected settings: NgxPolarChartSettings = null!;
 
   private subscriptions: Subscription[] = [];

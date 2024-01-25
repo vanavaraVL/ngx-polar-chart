@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {GroupDataModel} from '../../../models/chart.model';
+import {ChartDataModel} from '../../../models/chart.model';
 import {BuilderModel} from '../../../models/builder.model';
 import {ChartBuilderBase, IPolarChartBuilder} from '../../chart-builder.base';
 
@@ -24,7 +24,7 @@ export class XAxisBuilder extends ChartBuilderBase implements IPolarChartBuilder
       .attr('text-anchor', 'middle')
       .attr(
         'transform',
-        (d: GroupDataModel) => `
+        (d: ChartDataModel) => `
         rotate(${(((x0(d[groupKey]) || 0) + x0.bandwidth() / 2) * 180) / Math.PI - 90})
         translate(${outerRadius + 35},0)
       `,
@@ -32,7 +32,7 @@ export class XAxisBuilder extends ChartBuilderBase implements IPolarChartBuilder
 
     outsideLabels
       .append('text')
-      .attr('transform', (d: GroupDataModel) =>
+      .attr('transform', (d: ChartDataModel) =>
         ((x0(d[groupKey]) || 0) + x0.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI
           ? 'rotate(90)translate(0,16)'
           : 'rotate(-90)translate(0,-9)',
@@ -49,7 +49,7 @@ export class XAxisBuilder extends ChartBuilderBase implements IPolarChartBuilder
       .attr('text-anchor', 'middle')
       .attr(
         'transform',
-        (d: GroupDataModel) => `
+        (d: ChartDataModel) => `
         rotate(${(((x0(d[groupKey]) || 0) + x0.bandwidth() / 2) * 180) / Math.PI - 90})
         translate(${innerRadius},0)
       `,
@@ -59,7 +59,7 @@ export class XAxisBuilder extends ChartBuilderBase implements IPolarChartBuilder
 
     insideLabels
       .append('line')
-      .attr('x2', (_: GroupDataModel) => {
+      .attr('x2', (_: ChartDataModel) => {
         return lineHeight;
       })
       .attr('stroke', '#000');

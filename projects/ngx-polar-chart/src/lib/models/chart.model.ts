@@ -1,24 +1,24 @@
-export interface GroupDataSetModel {
-  settings: GroupDataSettingsModel;
-  data: GroupDataModel[];
+export interface ChartDataSetModel {
+  settings: ChartDataSettingsModel;
+  data: ChartDataModel[];
 }
 
-export interface GroupDataSettingsModel {
+export interface ChartDataSettingsModel {
   keys: string[];
   keyColors: string[];
 }
-export interface GroupDataModel {
+export interface ChartDataModel {
   key: string;
   dayOfWeek?: number;
   dayOfWeekName?: string;
 }
 
-export interface StorageEntity {
+export interface ChartStorageEntityModel {
   values: number[];
-  additionInfo?: StorageEntityAdditionInfo;
+  additionInfo?: ChartStorageAdditionInfoModel;
 }
 
-export interface StorageEntityAdditionInfo {
+export interface ChartStorageAdditionInfoModel {
   dayOfWeek?: number;
   dayOfWeekName?: string;
 }

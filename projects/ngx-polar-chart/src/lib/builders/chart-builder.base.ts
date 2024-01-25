@@ -1,16 +1,16 @@
 import {Injectable, ElementRef} from '@angular/core';
 import {BuilderModel} from '../models/builder.model';
 import * as d3 from 'd3';
-import {GroupDataModel, GroupDataSettingsModel} from '../models/chart.model';
+import {ChartDataModel, ChartDataSettingsModel} from '../models/chart.model';
 import {NgxPolarChartSettings} from '../models/ngx-group-chart-settings.model';
 
 export interface IBuilder {
   buildChart(
     chartContainer: ElementRef | undefined,
     chartId: string,
-    data: GroupDataModel[],
+    data: ChartDataModel[],
     plotSettings: NgxPolarChartSettings,
-    chartDataSettings: GroupDataSettingsModel,
+    chartDataSettings: ChartDataSettingsModel,
   ): void;
 }
 
@@ -60,7 +60,7 @@ export abstract class ChartBuilderBase implements IPolarChartBuilder {
   protected getMaximumValue(buildModel: BuilderModel): number {
     const keys = buildModel.chartDataSettings.keys;
 
-    return d3.max(buildModel.data, (d: GroupDataModel) => d3.max(keys, (k) => (d as any)[k])) || 0;
+    return d3.max(buildModel.data, (d: ChartDataModel) => d3.max(keys, (k) => (d as any)[k])) || 0;
   }
 
   protected getAverage(buildModel: BuilderModel): number {
@@ -74,14 +74,14 @@ export abstract class ChartBuilderBase implements IPolarChartBuilder {
   protected getAverageValue(buildModel: BuilderModel): number {
     const keys = buildModel.chartDataSettings.keys;
 
-    return d3.mean(buildModel.data, (d: GroupDataModel) => d3.mean(keys, (k) => (d as any)[k])) || 0;
+    return d3.mean(buildModel.data, (d: ChartDataModel) => d3.mean(keys, (k) => (d as any)[k])) || 0;
   }
 
   protected getMinimum(buildModel: BuilderModel): number {
     if (!this.minimum) {
       const keys = buildModel.chartDataSettings.keys;
 
-      this.minimum = d3.min(buildModel.data, (d: GroupDataModel) => d3.min(keys, (k: string) => (d as any)[k]));
+      this.minimum = d3.min(buildModel.data, (d: ChartDataModel) => d3.min(keys, (k: string) => (d as any)[k]));
     }
 
     return this.minimum || 0;
@@ -91,7 +91,7 @@ export abstract class ChartBuilderBase implements IPolarChartBuilder {
     if (!this.x0) {
       this.x0 = d3
         .scaleBand()
-        .domain(buildModel.data.map((d: GroupDataModel) => d.key))
+        .domain(buildModel.data.map((d: ChartDataModel) => d.key))
         .range([0, 2 * Math.PI])
         .align(0);
     }

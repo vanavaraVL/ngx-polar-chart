@@ -4,14 +4,15 @@ import {Injectable, ElementRef} from '@angular/core';
 import * as d3 from 'd3';
 import * as lodash from 'lodash';
 
-import {GroupDataSettingsModel} from '../../../models/chart.model';
+import {ChartDataSettingsModel} from '../../../models/chart.model';
 import {NgxPolarChartSettings} from '../../../models/ngx-group-chart-settings.model';
-import {GroupDataModel} from '../../../models/chart.model';
+import {ChartDataModel} from '../../../models/chart.model';
 import {BuilderModel} from '../../../models/builder.model';
 import {XAxisBuilder} from './x-axis.builder';
 import {YAxisBuilder} from './y-axis.builder';
 import {LegendBuilder} from './legend.builder';
 import {IPolarChartBuilder, IBuilder} from '../../chart-builder.base';
+import {isDataEmpty} from '../../../common/polar-chart-common.utils';
 
 @Injectable({
   providedIn: 'root',
@@ -57,10 +58,10 @@ export class Builder implements IBuilder {
   };
 
   constructor(
-    private chartBuilder: ChartBuilder,
-    private xAxisBuilder: XAxisBuilder,
-    private yAxisBuilder: YAxisBuilder,
-    private legendBuilder: LegendBuilder,
+    chartBuilder: ChartBuilder,
+    xAxisBuilder: XAxisBuilder,
+    yAxisBuilder: YAxisBuilder,
+    legendBuilder: LegendBuilder,
   ) {
     this.builders.push(chartBuilder);
     this.builders.push(xAxisBuilder);
@@ -71,13 +72,17 @@ export class Builder implements IBuilder {
   public buildChart(
     chartContainer: ElementRef | undefined,
     chartId: string,
-    data: GroupDataModel[],
+    data: ChartDataModel[],
     plotSettings: NgxPolarChartSettings,
-    chartDataSettings: GroupDataSettingsModel,
+    chartDataSettings: ChartDataSettingsModel,
   ): void {
     if (!chartContainer) return;
 
     d3.select(`#${chartId} svg`).remove();
+
+    if (isDataEmpty(data)) {
+      return;
+    }
 
     const element = chartContainer!.nativeElement;
     const plotSettingsCopy = this.copyPlotSettings(plotSettings) || {};
@@ -112,7 +117,7 @@ export class Builder implements IBuilder {
 
   private overrideGroupColorSettings(
     plotSettings: NgxPolarChartSettings,
-    chartDataSettings: GroupDataSettingsModel,
+    chartDataSettings: ChartDataSettingsModel,
   ): void {
     if (chartDataSettings.keyColors.length === plotSettings.barsSettings?.groupColors?.length) {
       chartDataSettings.keyColors = plotSettings.barsSettings?.groupColors;
