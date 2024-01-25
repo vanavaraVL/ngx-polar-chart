@@ -1,13 +1,13 @@
 <div>
   <div class="grid grid-cols-2 gap-5">
-    <button class="p-4 rounded bg-white shadow-md hover:bg-sky-600" (click)="showTemplate(sampleEnum.grouped)"
+    <button class="p-4 rounded bg-white shadow-md hover:bg-sky-300" (click)="showTemplate(sampleEnum.grouped)"
             [class.text-white]="sampleShown===sampleEnum.grouped"
-            [class.bg-sky-400]="sampleShown===sampleEnum.grouped">
+            [class.bg-sky-200]="sampleShown===sampleEnum.grouped">
       Polar chart grouped
     </button>
-    <button class="p-4 rounded bg-white shadow-md hover:bg-sky-600" (click)="showTemplate(sampleEnum.stacked)"
+    <button class="p-4 rounded bg-white shadow-md hover:bg-sky-300" (click)="showTemplate(sampleEnum.stacked)"
             [class.text-white]="sampleShown===sampleEnum.stacked"
-            [class.bg-sky-400]="sampleShown===sampleEnum.stacked">
+            [class.bg-sky-200]="sampleShown===sampleEnum.stacked">
       Polar chart stacked
     </button>
   </div>
@@ -31,20 +31,6 @@
         <ng-container [ngTemplateOutlet]="settingsDays"></ng-container>
         <ngx-polar-chart-group [chartData]="date1GroupDataSet"></ngx-polar-chart-group>
       </div>
-
-    </div>
-
-    <div class="container">
-      <div class="sample-container">
-        <p>Polar chart (<b>single group</b>) <b>grouped by series</b> (e.g. [P-1...P-45]). Turn off highlight</p>
-        <ngx-polar-chart-group [chartData]="series1GroupDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group>
-      </div>
-
-      <div class="sample-container">
-        <p>Polar chart (<b>single group</b>) <b>grouped by series</b> (e.g. [P-1...P-45]). Default settings</p>
-        <ng-container [ngTemplateOutlet]="settings"></ng-container>
-        <ngx-polar-chart-group [chartData]="series1GroupDataSet"></ngx-polar-chart-group>
-      </div>
     </div>
 
     <div class="container">
@@ -57,19 +43,6 @@
         <p>Polar chart (<b>two groups</b>) <b>grouped by date</b> of current month. Default settings</p>
         <ng-container [ngTemplateOutlet]="settingsDays"></ng-container>
         <ngx-polar-chart-group [chartData]="date2GroupsDataSet"></ngx-polar-chart-group>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="sample-container">
-        <p>Polar chart (<b>two groups</b>) <b>grouped by series</b> (e.g. [P-1...P-45]). Turn off highlight</p>
-        <ngx-polar-chart-group [chartData]="series2GroupsDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group>
-      </div>
-
-      <div class="sample-container">
-        <p>Polar chart (<b>two groups</b>) <b>grouped by series</b> (e.g. [P-1...P-45]). Default settings</p>
-        <ng-container [ngTemplateOutlet]="settingsDays"></ng-container>
-        <ngx-polar-chart-group [chartData]="series2GroupsDataSet"></ngx-polar-chart-group>
       </div>
     </div>
 
@@ -96,6 +69,32 @@
         <p>Polar chart (<b>two groups</b>) <b>grouped by year</b>. Default settings</p>
         <ng-container [ngTemplateOutlet]="settings"></ng-container>
         <ngx-polar-chart-group [chartData]="date2GroupsDataSetByYear"></ngx-polar-chart-group>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="sample-container">
+        <p>Polar chart (<b>single group</b>) <b>grouped by series</b> (e.g. [P-1...P-45]). Turn off highlight</p>
+        <ngx-polar-chart-group [chartData]="series1GroupDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group>
+      </div>
+
+      <div class="sample-container">
+        <p>Polar chart (<b>single group</b>) <b>grouped by series</b> (e.g. [P-1...P-45]). Default settings</p>
+        <ng-container [ngTemplateOutlet]="settings"></ng-container>
+        <ngx-polar-chart-group [chartData]="series1GroupDataSet"></ngx-polar-chart-group>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="sample-container">
+        <p>Polar chart (<b>two groups</b>) <b>grouped by series</b> (e.g. [P-1...P-45]). Turn off highlight</p>
+        <ngx-polar-chart-group [chartData]="series2GroupsDataSet" [chartSettings]="customSettings"></ngx-polar-chart-group>
+      </div>
+
+      <div class="sample-container">
+        <p>Polar chart (<b>two groups</b>) <b>grouped by series</b> (e.g. [P-1...P-45]). Default settings</p>
+        <ng-container [ngTemplateOutlet]="settingsDays"></ng-container>
+        <ngx-polar-chart-group [chartData]="series2GroupsDataSet"></ngx-polar-chart-group>
       </div>
     </div>
   </div>
