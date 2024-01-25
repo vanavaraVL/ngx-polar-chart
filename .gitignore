@@ -21,6 +21,8 @@ yarn-error.log
 *.sublime-workspace
 
 # Visual Studio Code
+.vscode
+/.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -45,5 +47,15 @@ Thumbs.db
 /.vs/ngx-polar-chart/v17
 /.vs/ngx-polar-chart/v17/.wsuo
 /.vscode/settings.json
+.vs/ngx-polar-chart/config
+/.vs/ngx-polar-chart/config
 
 /projects/ngx-polar-chart/node_modules
+/.vscode/extensions.json
+/.vscode/launch.json
+/.vscode/tasks.json
+/.vs/ngx-polar-chart/config/applicationhost.config
+/.vscode/extensions.json
+/.vscode/launch.json
+/.vscode/settings.json
+/.vscode/tasks.json
