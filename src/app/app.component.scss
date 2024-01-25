@@ -14,11 +14,11 @@
     flex-basis: 0;
     align-items: center;
 
-    & ngx-polar-chart-group-date {
+    & ngx-polar-chart-group {
       width: 80%;
     }
 
-    & ngx-polar-chart-group-series {
+    & ngx-polar-chart-stack {
       width: 80%;
     }
   }

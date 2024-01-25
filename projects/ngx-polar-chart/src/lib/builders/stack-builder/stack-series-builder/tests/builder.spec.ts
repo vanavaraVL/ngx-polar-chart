@@ -1,22 +1,19 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {cloneDeep} from 'lodash';
-import {NgxDateGroup} from '../../../../models/ngx-group-chart.model';
-import {
-  DateSingleGroupGroupedByDayMock,
-  DateTwoGroupsGroupedByDayMock,
-} from '../../../../../tests/mocks/group-date.mock';
 import {Builder} from '../builder';
 import {ChartBuilder} from '../chart.builder';
 import {LegendBuilder} from '../legend.builder';
 import {XAxisBuilder} from '../x-axis.builder';
 import {YAxisBuilder} from '../y-axis.builder';
-import {NgxPolarChartGroupComponent} from '../../../../ngx-polar-chart-group/ngx-polar-chart-group.component';
+import {NgxPolarChartStackComponent} from '../../../../ngx-polar-chart-stack/ngx-polar-chart-stack.component';
 import {PolarChartService} from '../../../../services/polar-chart.service';
+import {NgxSeriesGroup} from '../../../../../../../../dist/ngx-polar-chart';
+import {SeriesSingleGroupMock, SeriesTwoGroupsMock} from '../../../../../tests/mocks/group-series.mock';
 
-describe('group date builder', () => {
-  let component: NgxPolarChartGroupComponent;
-  let fixture: ComponentFixture<NgxPolarChartGroupComponent>;
+describe('stack by series builder', () => {
+  let component: NgxPolarChartStackComponent;
+  let fixture: ComponentFixture<NgxPolarChartStackComponent>;
   let service: PolarChartService;
   let builder: Builder;
 
@@ -25,8 +22,8 @@ describe('group date builder', () => {
   let xAxisBuilder: XAxisBuilder;
   let yAxisBuilder: YAxisBuilder;
 
-  let groupDateByDaySingleGroupMock: NgxDateGroup;
-  let groupDateByDayTwoGroupsMock: NgxDateGroup;
+  let seriesSingleGroupMock: NgxSeriesGroup;
+  let seriesTwoGroupsMock: NgxSeriesGroup;
 
   let spyBuilder: any;
   let spyChartBuilder: any;
@@ -37,10 +34,10 @@ describe('group date builder', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [PolarChartService, Builder, ChartBuilder, LegendBuilder, XAxisBuilder, YAxisBuilder],
-      declarations: [NgxPolarChartGroupComponent],
+      declarations: [NgxPolarChartStackComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NgxPolarChartGroupComponent);
+    fixture = TestBed.createComponent(NgxPolarChartStackComponent);
     component = fixture.componentInstance;
     service = fixture.componentRef.injector.get(PolarChartService);
 
@@ -56,8 +53,8 @@ describe('group date builder', () => {
     spyXAxisBuilder = spyOn(xAxisBuilder, 'build').and.callThrough();
     spyYAxisBuilder = spyOn(yAxisBuilder, 'build').and.callThrough();
 
-    groupDateByDaySingleGroupMock = cloneDeep(DateSingleGroupGroupedByDayMock);
-    groupDateByDayTwoGroupsMock = cloneDeep(DateTwoGroupsGroupedByDayMock);
+    seriesSingleGroupMock = cloneDeep(SeriesSingleGroupMock);
+    seriesTwoGroupsMock = cloneDeep(SeriesTwoGroupsMock);
   });
 
   it('should be created', () => {
@@ -65,7 +62,7 @@ describe('group date builder', () => {
   });
 
   it('should call all builders for single group', () => {
-    service.loadDateData(groupDateByDaySingleGroupMock);
+    service.loadSeriesData(seriesSingleGroupMock);
     service.loadChartSettings({});
 
     fixture.detectChanges();
@@ -78,7 +75,7 @@ describe('group date builder', () => {
   });
 
   it('should call all builders for two group', () => {
-    service.loadDateData(groupDateByDayTwoGroupsMock);
+    service.loadSeriesData(seriesTwoGroupsMock);
     service.loadChartSettings({});
 
     fixture.detectChanges();

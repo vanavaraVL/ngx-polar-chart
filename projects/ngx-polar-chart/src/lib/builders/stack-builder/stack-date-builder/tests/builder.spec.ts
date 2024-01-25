@@ -11,12 +11,12 @@ import {ChartBuilder} from '../chart.builder';
 import {LegendBuilder} from '../legend.builder';
 import {XAxisBuilder} from '../x-axis.builder';
 import {YAxisBuilder} from '../y-axis.builder';
-import {NgxPolarChartGroupComponent} from '../../../../ngx-polar-chart-group/ngx-polar-chart-group.component';
+import {NgxPolarChartStackComponent} from '../../../../ngx-polar-chart-stack/ngx-polar-chart-stack.component';
 import {PolarChartService} from '../../../../services/polar-chart.service';
 
-describe('group date builder', () => {
-  let component: NgxPolarChartGroupComponent;
-  let fixture: ComponentFixture<NgxPolarChartGroupComponent>;
+describe('stack by date builder', () => {
+  let component: NgxPolarChartStackComponent;
+  let fixture: ComponentFixture<NgxPolarChartStackComponent>;
   let service: PolarChartService;
   let builder: Builder;
 
@@ -37,10 +37,10 @@ describe('group date builder', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [PolarChartService, Builder, ChartBuilder, LegendBuilder, XAxisBuilder, YAxisBuilder],
-      declarations: [NgxPolarChartGroupComponent],
+      declarations: [NgxPolarChartStackComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NgxPolarChartGroupComponent);
+    fixture = TestBed.createComponent(NgxPolarChartStackComponent);
     component = fixture.componentInstance;
     service = fixture.componentRef.injector.get(PolarChartService);
 

@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import * as d3 from 'd3';
 import {BuilderGroupedDateItemModel, BuilderModel} from '../../../models/builder.model';
-import {BuilderBase, IBuilder} from '../../builder.base';
+import {ChartBuilderBase, IPolarChartBuilder} from '../../chart-builder.base';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ChartBuilder extends BuilderBase implements IBuilder {
+export class ChartBuilder extends ChartBuilderBase implements IPolarChartBuilder {
   build(buildModel: BuilderModel): void {
     const innerRadius = this.getInnerRadius(buildModel);
 

@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import * as d3 from 'd3';
 import {BuilderModel} from '../../../models/builder.model';
-import {BuilderBase, IBuilder} from '../../builder.base';
+import {ChartBuilderBase, IPolarChartBuilder} from '../../chart-builder.base';
 
 @Injectable({
   providedIn: 'root',
 })
-export class YAxisBuilder extends BuilderBase implements IBuilder {
+export class YAxisBuilder extends ChartBuilderBase implements IPolarChartBuilder {
   build(buildModel: BuilderModel): void {
     const max = this.getMaximum(buildModel);
     const average = this.getAverage(buildModel);

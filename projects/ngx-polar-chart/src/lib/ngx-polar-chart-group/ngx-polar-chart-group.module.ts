@@ -1,10 +1,9 @@
 import {NgModule} from '@angular/core';
-import {NgxPolarChartGroupDateComponent} from './ngx-polar-chart-group-date/ngx-polar-chart-group-date.component';
-import {NgxPolarChartGroupSeriesComponent} from './ngx-polar-chart-group-series/ngx-polar-chart-group-series.component';
+import {NgxPolarChartGroupComponent} from './ngx-polar-chart-group.component';
 
 @NgModule({
-  declarations: [NgxPolarChartGroupDateComponent, NgxPolarChartGroupSeriesComponent],
+  declarations: [NgxPolarChartGroupComponent],
   imports: [],
-  exports: [NgxPolarChartGroupDateComponent, NgxPolarChartGroupSeriesComponent],
+  exports: [NgxPolarChartGroupComponent],
 })
 export class NgxPolarChartGroupModule {}

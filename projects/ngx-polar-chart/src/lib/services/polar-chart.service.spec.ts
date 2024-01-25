@@ -18,17 +18,17 @@ import moment from 'moment';
 import {GroupDataSetModel} from '../models/chart.model';
 import {SeriesSingleGroupMock, SeriesTwoGroupsMock} from '../../tests/mocks/group-series.mock';
 
-describe('group services', () => {
+describe('polar chart services', () => {
   let services: TestServices;
-  let groupService: PolarChartService;
+  let polarChartService: PolarChartService;
 
-  let groupDateByDaySingleGroupMock: NgxDateGroup;
-  let groupDateByMonthSingleGroupMock: NgxDateGroup;
-  let groupDateByYearSingleGroupMock: NgxDateGroup;
+  let dateByDaySingleGroupMock: NgxDateGroup;
+  let dateByMonthSingleGroupMock: NgxDateGroup;
+  let dateByYearSingleGroupMock: NgxDateGroup;
 
-  let groupDateByDayTwoGroupsMock: NgxDateGroup;
-  let groupDateByMonthTwoGroupsMock: NgxDateGroup;
-  let groupDateByYearTwoGroupsMock: NgxDateGroup;
+  let dateByDayTwoGroupsMock: NgxDateGroup;
+  let dateByMonthTwoGroupsMock: NgxDateGroup;
+  let dateByYearTwoGroupsMock: NgxDateGroup;
 
   let dateNow: Date;
 
@@ -40,7 +40,7 @@ describe('group services', () => {
        {key: 'Jan`3', 'First group test': 3}
     }
   */
-  let resultGroupDateByDayForSingleGroup: GroupDataSetModel;
+  let resultDateByDayForSingleGroup: GroupDataSetModel;
 
   /*
     Flatten data (has run in January):
@@ -58,7 +58,7 @@ describe('group services', () => {
        {key: 'December', 'First group test': 0}
     }
   */
-  let resultGroupDateByMonthForSingleGroup: GroupDataSetModel;
+  let resultDateByMonthForSingleGroup: GroupDataSetModel;
 
   /*
     Flatten data (has run in 2024):
@@ -70,7 +70,7 @@ describe('group services', () => {
        {key: '2026', 'First group test': 0}
     }
   */
-  let resultGroupDateByYearForSingleGroup: GroupDataSetModel;
+  let resultDateByYearForSingleGroup: GroupDataSetModel;
 
   /*
     Flatten data (has run in January):
@@ -80,7 +80,7 @@ describe('group services', () => {
        {key: 'Jan`3', 'First group test': 3, 'Second group test': 3}
     }
   */
-  let resultGroupDateByDayForTwoGroups: GroupDataSetModel;
+  let resultDateByDayForTwoGroups: GroupDataSetModel;
 
   /*
     Flatten data (has run in January):
@@ -98,7 +98,7 @@ describe('group services', () => {
        {key: 'December', 'First group test': 0, 'Second group test': 0}
     }
   */
-  let resultGroupDateByMonthForTwoGroups: GroupDataSetModel;
+  let resultDateByMonthForTwoGroups: GroupDataSetModel;
 
   /*
     Flatten data (has run in 2024):
@@ -110,10 +110,10 @@ describe('group services', () => {
        {key: '2026', 'First group test': 0, 'Second group test': 0}
     }
   */
-  let resultGroupDateByYearForTwoGroups: GroupDataSetModel;
+  let resultDateByYearForTwoGroups: GroupDataSetModel;
 
-  let groupSeriesSingleGroupMock: NgxSeriesGroup;
-  let groupSeriesTwoGroupsMock: NgxSeriesGroup;
+  let seriesSingleGroupMock: NgxSeriesGroup;
+  let seriesTwoGroupsMock: NgxSeriesGroup;
 
   /*
     Flatten data:
@@ -123,7 +123,7 @@ describe('group services', () => {
        {key: 'Test-C', 'First group test': 3}
     }
   */
-  let resultGroupSeriesSingleGroup: GroupDataSetModel;
+  let resultSeriesSingleGroup: GroupDataSetModel;
 
   /*
     Flatten data:
@@ -133,35 +133,35 @@ describe('group services', () => {
        {key: 'C', 'First group test': 3, 'Second group test': 3}
     }
   */
-  let resultGroupSeriesTwoGroups: GroupDataSetModel;
+  let resultSeriesTwoGroups: GroupDataSetModel;
 
   beforeEach(() => {
     ConfigureTestBed();
     services = TestBed.inject(TestServices);
 
-    groupService = services.groupService;
+    polarChartService = services.polarChartService;
 
-    groupDateByDaySingleGroupMock = cloneDeep(DateSingleGroupGroupedByDayMock);
-    groupDateByMonthSingleGroupMock = cloneDeep(DateSingleGroupGroupedByMonthMock);
-    groupDateByYearSingleGroupMock = cloneDeep(DateSingleGroupGroupedByYearMock);
+    dateByDaySingleGroupMock = cloneDeep(DateSingleGroupGroupedByDayMock);
+    dateByMonthSingleGroupMock = cloneDeep(DateSingleGroupGroupedByMonthMock);
+    dateByYearSingleGroupMock = cloneDeep(DateSingleGroupGroupedByYearMock);
 
-    groupDateByDayTwoGroupsMock = cloneDeep(DateTwoGroupsGroupedByDayMock);
-    groupDateByMonthTwoGroupsMock = cloneDeep(DateTwoGroupsGroupedByMonthMock);
-    groupDateByYearTwoGroupsMock = cloneDeep(DateTwoGroupsGroupedByYearMock);
+    dateByDayTwoGroupsMock = cloneDeep(DateTwoGroupsGroupedByDayMock);
+    dateByMonthTwoGroupsMock = cloneDeep(DateTwoGroupsGroupedByMonthMock);
+    dateByYearTwoGroupsMock = cloneDeep(DateTwoGroupsGroupedByYearMock);
 
-    groupSeriesSingleGroupMock = cloneDeep(SeriesSingleGroupMock);
-    groupSeriesTwoGroupsMock = cloneDeep(SeriesTwoGroupsMock);
+    seriesSingleGroupMock = cloneDeep(SeriesSingleGroupMock);
+    seriesTwoGroupsMock = cloneDeep(SeriesTwoGroupsMock);
 
-    resultGroupDateByDayForSingleGroup = groupService.processDateGroup(groupDateByDaySingleGroupMock);
-    resultGroupDateByMonthForSingleGroup = groupService.processDateGroup(groupDateByMonthSingleGroupMock);
-    resultGroupDateByYearForSingleGroup = groupService.processDateGroup(groupDateByYearSingleGroupMock);
+    resultDateByDayForSingleGroup = polarChartService.processDateGroup(dateByDaySingleGroupMock);
+    resultDateByMonthForSingleGroup = polarChartService.processDateGroup(dateByMonthSingleGroupMock);
+    resultDateByYearForSingleGroup = polarChartService.processDateGroup(dateByYearSingleGroupMock);
 
-    resultGroupDateByDayForTwoGroups = groupService.processDateGroup(groupDateByDayTwoGroupsMock);
-    resultGroupDateByMonthForTwoGroups = groupService.processDateGroup(groupDateByMonthTwoGroupsMock);
-    resultGroupDateByYearForTwoGroups = groupService.processDateGroup(groupDateByYearTwoGroupsMock);
+    resultDateByDayForTwoGroups = polarChartService.processDateGroup(dateByDayTwoGroupsMock);
+    resultDateByMonthForTwoGroups = polarChartService.processDateGroup(dateByMonthTwoGroupsMock);
+    resultDateByYearForTwoGroups = polarChartService.processDateGroup(dateByYearTwoGroupsMock);
 
-    resultGroupSeriesSingleGroup = groupService.processSeriesGroup(groupSeriesSingleGroupMock);
-    resultGroupSeriesTwoGroups = groupService.processSeriesGroup(groupSeriesTwoGroupsMock);
+    resultSeriesSingleGroup = polarChartService.processSeriesGroup(seriesSingleGroupMock);
+    resultSeriesTwoGroups = polarChartService.processSeriesGroup(seriesTwoGroupsMock);
 
     dateNow = now;
   });
@@ -171,63 +171,63 @@ describe('group services', () => {
   });
 
   it('group service should be created', () => {
-    expect(groupService).toBeTruthy();
+    expect(polarChartService).toBeTruthy();
   });
 
   it('processDateGroup() should return flatten dataset for single group/two groups', () => {
-    expect(resultGroupDateByDayForSingleGroup).not.toBeNull();
-    expect(resultGroupDateByDayForTwoGroups).not.toBeNull();
+    expect(resultDateByDayForSingleGroup).not.toBeNull();
+    expect(resultDateByDayForTwoGroups).not.toBeNull();
   });
 
   it('processDateGroup() should return filled in by all days in current month flatten dataset for single group/two groups', () => {
     const daysInMonth = +moment(dateNow).endOf('month').format('D');
 
-    expect(resultGroupDateByDayForSingleGroup.data.length).toEqual(daysInMonth);
-    expect(resultGroupDateByDayForTwoGroups.data.length).toEqual(daysInMonth);
+    expect(resultDateByDayForSingleGroup.data.length).toEqual(daysInMonth);
+    expect(resultDateByDayForTwoGroups.data.length).toEqual(daysInMonth);
   });
 
   it('processDateGroup() should return filled in flatten dataset with passed values in the single group/in each group of two groups', () => {
-    const singleGroup = groupDateByDaySingleGroupMock.groups[0].items;
-    const singleGroupName = groupDateByDaySingleGroupMock.groups[0].name;
+    const singleGroup = dateByDaySingleGroupMock.groups[0].items;
+    const singleGroupName = dateByDaySingleGroupMock.groups[0].name;
 
-    resultGroupDateByDayForSingleGroup.data.forEach((d: any, index) => {
+    resultDateByDayForSingleGroup.data.forEach((d: any, index) => {
       if (index < singleGroup.length) {
-        expect(d[singleGroupName]).toEqual(groupDateByDaySingleGroupMock.groups[0].items[index].value);
+        expect(d[singleGroupName]).toEqual(dateByDaySingleGroupMock.groups[0].items[index].value);
       }
     });
 
-    const firstGroup = groupDateByDayTwoGroupsMock.groups[0].items;
-    const secondGroup = groupDateByDayTwoGroupsMock.groups[1].items;
-    const firstGroupName = groupDateByDayTwoGroupsMock.groups[0].name;
-    const secondGroupName = groupDateByDayTwoGroupsMock.groups[1].name;
+    const firstGroup = dateByDayTwoGroupsMock.groups[0].items;
+    const secondGroup = dateByDayTwoGroupsMock.groups[1].items;
+    const firstGroupName = dateByDayTwoGroupsMock.groups[0].name;
+    const secondGroupName = dateByDayTwoGroupsMock.groups[1].name;
 
-    resultGroupDateByDayForTwoGroups.data.forEach((d: any, index) => {
+    resultDateByDayForTwoGroups.data.forEach((d: any, index) => {
       if (index < firstGroup.length) {
-        expect(d[firstGroupName]).toEqual(groupDateByDayTwoGroupsMock.groups[0].items[index].value);
+        expect(d[firstGroupName]).toEqual(dateByDayTwoGroupsMock.groups[0].items[index].value);
       }
 
       if (index < secondGroup.length) {
-        expect(d[secondGroupName]).toEqual(groupDateByDayTwoGroupsMock.groups[1].items[index].value);
+        expect(d[secondGroupName]).toEqual(dateByDayTwoGroupsMock.groups[1].items[index].value);
       }
     });
   });
 
   it('processDateGroup() should return filled in by all days in current month flatten dataset with initialized values by 0 for single group/in each of two groups', () => {
-    const singleGroup = groupDateByDaySingleGroupMock.groups[0].items;
-    const singleGroupName = groupDateByDaySingleGroupMock.groups[0].name;
+    const singleGroup = dateByDaySingleGroupMock.groups[0].items;
+    const singleGroupName = dateByDaySingleGroupMock.groups[0].name;
 
-    resultGroupDateByDayForSingleGroup.data.forEach((d: any, index) => {
+    resultDateByDayForSingleGroup.data.forEach((d: any, index) => {
       if (singleGroup.length < index) {
         expect(d[singleGroupName]).toEqual(0);
       }
     });
 
-    const firstGroup = groupDateByDayTwoGroupsMock.groups[0].items;
-    const secondGroup = groupDateByDayTwoGroupsMock.groups[1].items;
-    const firstGroupName = groupDateByDayTwoGroupsMock.groups[0].name;
-    const secondGroupName = groupDateByDayTwoGroupsMock.groups[1].name;
+    const firstGroup = dateByDayTwoGroupsMock.groups[0].items;
+    const secondGroup = dateByDayTwoGroupsMock.groups[1].items;
+    const firstGroupName = dateByDayTwoGroupsMock.groups[0].name;
+    const secondGroupName = dateByDayTwoGroupsMock.groups[1].name;
 
-    resultGroupDateByDayForTwoGroups.data.forEach((d: any, index) => {
+    resultDateByDayForTwoGroups.data.forEach((d: any, index) => {
       if (firstGroup.length < index) {
         expect(d[firstGroupName]).toEqual(0);
       }
@@ -239,23 +239,23 @@ describe('group services', () => {
   });
 
   it('processDateGroup() should return filled in by all days in current month flatten dataset with non empty keys for single group/two groups', () => {
-    resultGroupDateByDayForSingleGroup.data.forEach((d) => {
+    resultDateByDayForSingleGroup.data.forEach((d) => {
       expect(d.key).not.toBeNull();
     });
 
-    resultGroupDateByDayForTwoGroups.data.forEach((d) => {
+    resultDateByDayForTwoGroups.data.forEach((d) => {
       expect(d.key).not.toBeNull();
     });
   });
 
   it('processDateGroup() should return filled in by all days in current month flatten dataset with formatted keys for single group/two groups', () => {
-    resultGroupDateByDayForSingleGroup.data.forEach((d, index) => {
+    resultDateByDayForSingleGroup.data.forEach((d, index) => {
       const currentKey = moment(new Date(now.getFullYear(), now.getMonth(), ++index)).format('MMM`D');
 
       expect(d.key).toEqual(currentKey);
     });
 
-    resultGroupDateByDayForTwoGroups.data.forEach((d, index) => {
+    resultDateByDayForTwoGroups.data.forEach((d, index) => {
       const currentKey = moment(new Date(now.getFullYear(), now.getMonth(), ++index)).format('MMM`D');
 
       expect(d.key).toEqual(currentKey);
@@ -265,62 +265,60 @@ describe('group services', () => {
   it('processDateGroup() should return filled in by all months in current year flatten dataset for single group/two groups', () => {
     const monthsInYear = 12;
 
-    expect(resultGroupDateByMonthForSingleGroup.data.length).toEqual(monthsInYear);
-    expect(resultGroupDateByMonthForTwoGroups.data.length).toEqual(monthsInYear);
+    expect(resultDateByMonthForSingleGroup.data.length).toEqual(monthsInYear);
+    expect(resultDateByMonthForTwoGroups.data.length).toEqual(monthsInYear);
   });
 
   it('processDateGroup() should return filled in by all months in current year flatten dataset with formatted keys [months names] for single group/two groups', () => {
     const months = moment.months();
 
-    resultGroupDateByMonthForSingleGroup.data.forEach((d, index) => {
+    resultDateByMonthForSingleGroup.data.forEach((d, index) => {
       expect(d.key).toEqual(months[index]);
     });
 
-    resultGroupDateByMonthForTwoGroups.data.forEach((d, index) => {
+    resultDateByMonthForTwoGroups.data.forEach((d, index) => {
       expect(d.key).toEqual(months[index]);
     });
   });
 
   it('processDateGroup() should return filled in by all months in current year flatten dataset with sum of passed values for single group/two groups', () => {
-    const singleGroupName = groupDateByMonthSingleGroupMock.groups[0].name;
-    const sumOfPassedValues = groupDateByMonthSingleGroupMock.groups[0].items
-      .map((i) => i.value)
-      .reduce((a, b) => a + b, 0);
+    const singleGroupName = dateByMonthSingleGroupMock.groups[0].name;
+    const sumOfPassedValues = dateByMonthSingleGroupMock.groups[0].items.map((i) => i.value).reduce((a, b) => a + b, 0);
 
     const currentMonth = +moment(now).format('M');
-    const passedMonth = <any>resultGroupDateByMonthForSingleGroup.data[currentMonth - 1];
+    const passedMonth = <any>resultDateByMonthForSingleGroup.data[currentMonth - 1];
 
     expect(passedMonth[singleGroupName]).toEqual(sumOfPassedValues);
 
-    const firstGroupName = groupDateByMonthTwoGroupsMock.groups[0].name;
-    const firstGroupSumOfPassedValues = groupDateByMonthTwoGroupsMock.groups[0].items
+    const firstGroupName = dateByMonthTwoGroupsMock.groups[0].name;
+    const firstGroupSumOfPassedValues = dateByMonthTwoGroupsMock.groups[0].items
       .map((i) => i.value)
       .reduce((a, b) => a + b, 0);
 
-    const secondGroupName = groupDateByMonthTwoGroupsMock.groups[1].name;
-    const secondGroupSumOfPassedValues = groupDateByMonthTwoGroupsMock.groups[1].items
+    const secondGroupName = dateByMonthTwoGroupsMock.groups[1].name;
+    const secondGroupSumOfPassedValues = dateByMonthTwoGroupsMock.groups[1].items
       .map((i) => i.value)
       .reduce((a, b) => a + b, 0);
 
-    const passedMonthTwoGroups = <any>resultGroupDateByMonthForTwoGroups.data[currentMonth - 1];
+    const passedMonthTwoGroups = <any>resultDateByMonthForTwoGroups.data[currentMonth - 1];
 
     expect(passedMonthTwoGroups[firstGroupName]).toEqual(firstGroupSumOfPassedValues);
     expect(passedMonthTwoGroups[secondGroupName]).toEqual(secondGroupSumOfPassedValues);
   });
 
   it('processDateGroup() should return filled in by all months in current year flatten dataset with initialized values by 0 for single group/two groups', () => {
-    const singleGroupName = groupDateByDaySingleGroupMock.groups[0].name;
+    const singleGroupName = dateByDaySingleGroupMock.groups[0].name;
 
-    resultGroupDateByMonthForSingleGroup.data.forEach((d: any, index) => {
+    resultDateByMonthForSingleGroup.data.forEach((d: any, index) => {
       if (0 < index) {
         expect(d[singleGroupName]).toEqual(0);
       }
     });
 
-    const firstGroupName = groupDateByMonthTwoGroupsMock.groups[0].name;
-    const secondGroupName = groupDateByMonthTwoGroupsMock.groups[1].name;
+    const firstGroupName = dateByMonthTwoGroupsMock.groups[0].name;
+    const secondGroupName = dateByMonthTwoGroupsMock.groups[1].name;
 
-    resultGroupDateByMonthForTwoGroups.data.forEach((d: any, index) => {
+    resultDateByMonthForTwoGroups.data.forEach((d: any, index) => {
       if (0 < index) {
         expect(d[firstGroupName]).toEqual(0);
         expect(d[secondGroupName]).toEqual(0);
@@ -331,8 +329,8 @@ describe('group services', () => {
   it('processDateGroup() should return filled in by years flatten dataset for single group/two groups', () => {
     const onePassedAndAddedFourYears = 5;
 
-    expect(resultGroupDateByYearForSingleGroup.data.length).toEqual(onePassedAndAddedFourYears);
-    expect(resultGroupDateByYearForTwoGroups.data.length).toEqual(onePassedAndAddedFourYears);
+    expect(resultDateByYearForSingleGroup.data.length).toEqual(onePassedAndAddedFourYears);
+    expect(resultDateByYearForTwoGroups.data.length).toEqual(onePassedAndAddedFourYears);
   });
 
   it('processDateGroup() should return filled in by years flatten dataset with formatted keys [years names] for single group/two groups', () => {
@@ -340,56 +338,54 @@ describe('group services', () => {
 
     const years: number[] = [currentYear - 2, currentYear - 1, currentYear, currentYear + 1, currentYear + 2];
 
-    resultGroupDateByYearForSingleGroup.data.forEach((d, index) => {
+    resultDateByYearForSingleGroup.data.forEach((d, index) => {
       expect(+d.key).toEqual(years[index]);
     });
 
-    resultGroupDateByYearForTwoGroups.data.forEach((d, index) => {
+    resultDateByYearForTwoGroups.data.forEach((d, index) => {
       expect(+d.key).toEqual(years[index]);
     });
   });
 
   it('processDateGroup() should return filled in by years flatten dataset with sum of passed values for single group/two groups', () => {
-    const singleGroupName = groupDateByYearSingleGroupMock.groups[0].name;
-    const sumOfPassedValues = groupDateByYearSingleGroupMock.groups[0].items
-      .map((i) => i.value)
-      .reduce((a, b) => a + b, 0);
+    const singleGroupName = dateByYearSingleGroupMock.groups[0].name;
+    const sumOfPassedValues = dateByYearSingleGroupMock.groups[0].items.map((i) => i.value).reduce((a, b) => a + b, 0);
     const groupIndexInDataSet = 2; // as we added automatically 2 years before
 
-    const passedMonth = <any>resultGroupDateByYearForSingleGroup.data[groupIndexInDataSet];
+    const passedMonth = <any>resultDateByYearForSingleGroup.data[groupIndexInDataSet];
 
     expect(passedMonth[singleGroupName]).toEqual(sumOfPassedValues);
 
-    const firstGroupName = groupDateByYearTwoGroupsMock.groups[0].name;
-    const firstGroupSumOfPassedValues = groupDateByYearTwoGroupsMock.groups[0].items
+    const firstGroupName = dateByYearTwoGroupsMock.groups[0].name;
+    const firstGroupSumOfPassedValues = dateByYearTwoGroupsMock.groups[0].items
       .map((i) => i.value)
       .reduce((a, b) => a + b, 0);
 
-    const secondGroupName = groupDateByYearTwoGroupsMock.groups[1].name;
-    const secondGroupSumOfPassedValues = groupDateByYearTwoGroupsMock.groups[1].items
+    const secondGroupName = dateByYearTwoGroupsMock.groups[1].name;
+    const secondGroupSumOfPassedValues = dateByYearTwoGroupsMock.groups[1].items
       .map((i) => i.value)
       .reduce((a, b) => a + b, 0);
 
-    const passedMonthTwoGroups = <any>resultGroupDateByYearForTwoGroups.data[groupIndexInDataSet];
+    const passedMonthTwoGroups = <any>resultDateByYearForTwoGroups.data[groupIndexInDataSet];
 
     expect(passedMonthTwoGroups[firstGroupName]).toEqual(firstGroupSumOfPassedValues);
     expect(passedMonthTwoGroups[secondGroupName]).toEqual(secondGroupSumOfPassedValues);
   });
 
   it('processDateGroup() should return filled in by years flatten dataset with initialized values by 0 for single group/for two groups', () => {
-    const singleGroupName = groupDateByYearSingleGroupMock.groups[0].name;
+    const singleGroupName = dateByYearSingleGroupMock.groups[0].name;
     const groupIndexInDataSet = 2; // as we added automatically 2 years before
 
-    resultGroupDateByYearForSingleGroup.data.forEach((d: any, index) => {
+    resultDateByYearForSingleGroup.data.forEach((d: any, index) => {
       if (index !== groupIndexInDataSet) {
         expect(d[singleGroupName]).toEqual(0);
       }
     });
 
-    const firstGroupName = groupDateByYearTwoGroupsMock.groups[0].name;
-    const secondGroupName = groupDateByYearTwoGroupsMock.groups[1].name;
+    const firstGroupName = dateByYearTwoGroupsMock.groups[0].name;
+    const secondGroupName = dateByYearTwoGroupsMock.groups[1].name;
 
-    resultGroupDateByYearForTwoGroups.data.forEach((d: any, index) => {
+    resultDateByYearForTwoGroups.data.forEach((d: any, index) => {
       if (index !== groupIndexInDataSet) {
         expect(d[firstGroupName]).toEqual(0);
         expect(d[secondGroupName]).toEqual(0);
@@ -398,37 +394,37 @@ describe('group services', () => {
   });
 
   it('loadSeriesData() should return flatten dataset for single group/two groups', () => {
-    expect(resultGroupSeriesSingleGroup).not.toBeNull();
-    expect(resultGroupSeriesTwoGroups).not.toBeNull();
+    expect(resultSeriesSingleGroup).not.toBeNull();
+    expect(resultSeriesTwoGroups).not.toBeNull();
   });
 
   it('loadSeriesData() should return filled in by dataset by series with non empty keys for single group/two groups', () => {
-    resultGroupSeriesSingleGroup.data.forEach((d) => {
+    resultSeriesSingleGroup.data.forEach((d) => {
       expect(d.key).not.toBeNull();
     });
 
-    resultGroupSeriesTwoGroups.data.forEach((d) => {
+    resultSeriesTwoGroups.data.forEach((d) => {
       expect(d.key).not.toBeNull();
     });
   });
 
   it('loadSeriesData() should return filled in flatten dataset by series with passed values in the single group/in each group of two groups', () => {
-    const singleGroupName = groupSeriesSingleGroupMock.groups[0].name;
+    const singleGroupName = seriesSingleGroupMock.groups[0].name;
 
-    resultGroupSeriesSingleGroup.data.forEach((d: any, index) => {
-      expect(d[singleGroupName]).toEqual(groupSeriesSingleGroupMock.groups[0].items[index].value);
-      expect(d.key).toEqual(groupSeriesSingleGroupMock.groups[0].items[index].key);
+    resultSeriesSingleGroup.data.forEach((d: any, index) => {
+      expect(d[singleGroupName]).toEqual(seriesSingleGroupMock.groups[0].items[index].value);
+      expect(d.key).toEqual(seriesSingleGroupMock.groups[0].items[index].key);
     });
 
-    const firstGroupName = groupSeriesTwoGroupsMock.groups[0].name;
-    const secondGroupName = groupSeriesTwoGroupsMock.groups[1].name;
+    const firstGroupName = seriesTwoGroupsMock.groups[0].name;
+    const secondGroupName = seriesTwoGroupsMock.groups[1].name;
 
-    resultGroupSeriesTwoGroups.data.forEach((d: any, index) => {
-      expect(d[firstGroupName]).toEqual(groupSeriesTwoGroupsMock.groups[0].items[index].value);
-      expect(d[secondGroupName]).toEqual(groupSeriesTwoGroupsMock.groups[1].items[index].value);
+    resultSeriesTwoGroups.data.forEach((d: any, index) => {
+      expect(d[firstGroupName]).toEqual(seriesTwoGroupsMock.groups[0].items[index].value);
+      expect(d[secondGroupName]).toEqual(seriesTwoGroupsMock.groups[1].items[index].value);
 
-      expect(d.key).toEqual(groupSeriesTwoGroupsMock.groups[0].items[index].key);
-      expect(d.key).toEqual(groupSeriesTwoGroupsMock.groups[1].items[index].key);
+      expect(d.key).toEqual(seriesTwoGroupsMock.groups[0].items[index].key);
+      expect(d.key).toEqual(seriesTwoGroupsMock.groups[1].items[index].key);
     });
   });
 });

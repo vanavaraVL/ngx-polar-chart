@@ -55,22 +55,13 @@ export class XAxisBuilder extends ChartBuilderBase implements IPolarChartBuilder
       `,
       );
 
-    const lineHeigh = -4;
+    const lineHeight = -4;
 
     insideLabels
       .append('line')
       .attr('x2', (_: GroupDataModel) => {
-        return lineHeigh;
+        return lineHeight;
       })
       .attr('stroke', '#000');
-
-    insideLabels
-      .append('text')
-      .attr('transform', (d: GroupDataModel) =>
-        ((x0(d[groupKey]) || 0) + x0.bandwidth() / 2 + Math.PI / 2) % (2 * Math.PI) < Math.PI
-          ? 'rotate(90)translate(0,16)'
-          : 'rotate(-90)translate(0,-9)',
-      )
-      .style('font-size', `${buildModel.chartSettings.fontSettings!.fontSize}px`);
   }
 }

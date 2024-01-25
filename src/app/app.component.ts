@@ -1,7 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import moment from 'moment';
-import {NgxChart, NgxDateGroup, NgxGroupBy, NgxSeriesGroup} from 'NgxPolarChart';
+import {NgxChart, NgxChartData, NgxGroupBy} from 'NgxPolarChart';
 import {NgxPolarChartSettings} from 'NgxPolarChart';
+
+enum sampleEnum {
+  grouped,
+  stacked,
+}
 
 @Component({
   selector: 'app-root',
@@ -14,13 +19,18 @@ export class AppComponent implements OnInit {
 
   title = 'ngx-polar-chart';
 
-  public dateDataSet: NgxDateGroup = null!;
-  public dateSingleDataSet: NgxDateGroup = null!;
-  public dateDataSetByMonth: NgxDateGroup = null!;
-  public dateDataSetByYear: NgxDateGroup = null!;
+  public date2GroupsDataSet: NgxChartData = null!;
+  public date3GroupsDataSet: NgxChartData = null!;
+  public date1GroupDataSet: NgxChartData = null!;
 
-  public seriesDataSet: NgxSeriesGroup = null!;
-  public seriesSingleDataSet: NgxSeriesGroup = null!;
+  public date2GroupsDataSetByMonth: NgxChartData = null!;
+  public date2GroupsDataSetByYear: NgxChartData = null!;
+
+  public series2GroupsDataSet: NgxChartData = null!;
+  public series1GroupDataSet: NgxChartData = null!;
+
+  public sampleEnum = sampleEnum;
+  public sampleShown: sampleEnum = sampleEnum.grouped;
 
   public customSettings: NgxPolarChartSettings = {
     barsSettings: {
@@ -43,17 +53,21 @@ export class AppComponent implements OnInit {
     this.generateSamples();
   }
 
+  public showTemplate(template: sampleEnum): void {
+    this.sampleShown = template;
+  }
+
   ngOnInit(): void {
     this.generateSamples();
   }
 
   private generateSamples(): void {
-    this.loadDateData();
+    this.loadDateGroupedByDay();
     this.loadSeriesData();
-    this.loadDateDataByMonthAndYear();
+    this.loadDateGroupedByMonthAndYear();
   }
 
-  private loadDateData(endOfMonth?: boolean): void {
+  private loadDateGroupedByDay(endOfMonth?: boolean): void {
     const now = new Date();
 
     const startDate = +moment(now).startOf('month').format('D');
@@ -61,6 +75,7 @@ export class AppComponent implements OnInit {
 
     const sampleGroupAItems: NgxChart<Date>[] = [];
     const sampleGroupBItems: NgxChart<Date>[] = [];
+    const sampleGroupCItems: NgxChart<Date>[] = [];
 
     for (let i = startDate; i <= endDate; i++) {
       sampleGroupAItems.push({
@@ -72,9 +87,14 @@ export class AppComponent implements OnInit {
         key: new Date(moment(now).year(), moment(now).month(), i),
         value: Math.floor(Math.random() * 101),
       });
+
+      sampleGroupCItems.push({
+        key: new Date(moment(now).year(), moment(now).month(), i),
+        value: Math.floor(Math.random() * 101),
+      });
     }
 
-    this.dateDataSet = {
+    this.date2GroupsDataSet = {
       groups: [
         {
           name: 'Sample group A',
@@ -87,7 +107,24 @@ export class AppComponent implements OnInit {
       ],
     };
 
-    this.dateSingleDataSet = {
+    this.date3GroupsDataSet = {
+      groups: [
+        {
+          name: 'Sample group A',
+          items: sampleGroupAItems,
+        },
+        {
+          name: 'Sample group B',
+          items: sampleGroupBItems,
+        },
+        {
+          name: 'Sample group C',
+          items: sampleGroupCItems,
+        },
+      ],
+    };
+
+    this.date1GroupDataSet = {
       groups: [
         {
           name: 'Sample group',
@@ -97,7 +134,7 @@ export class AppComponent implements OnInit {
     };
   }
 
-  private loadDateDataByMonthAndYear(): void {
+  private loadDateGroupedByMonthAndYear(): void {
     const now = new Date();
 
     const startMonth = 0;
@@ -118,7 +155,7 @@ export class AppComponent implements OnInit {
       });
     }
 
-    this.dateDataSetByMonth = {
+    this.date2GroupsDataSetByMonth = {
       groupBy: NgxGroupBy.month,
       groups: [
         {
@@ -132,7 +169,7 @@ export class AppComponent implements OnInit {
       ],
     };
 
-    this.dateDataSetByYear = {
+    this.date2GroupsDataSetByYear = {
       groupBy: NgxGroupBy.year,
       groups: [
         {
@@ -163,7 +200,7 @@ export class AppComponent implements OnInit {
       });
     }
 
-    this.seriesDataSet = {
+    this.series2GroupsDataSet = {
       groups: [
         {
           name: 'Sample series group A',
@@ -176,7 +213,7 @@ export class AppComponent implements OnInit {
       ],
     };
 
-    this.seriesSingleDataSet = {
+    this.series1GroupDataSet = {
       groups: [
         {
           name: 'Sample group',

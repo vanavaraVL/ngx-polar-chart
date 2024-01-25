@@ -56,4 +56,28 @@ export class YAxisBuilder extends ChartBuilderBase implements IPolarChartBuilder
         .text(y.tickFormat(5, 's'));
     }
   }
+
+  protected override getYDomain(buildModel: BuilderModel): number {
+    const keys = buildModel.chartDataSettings.keys;
+
+    return (
+      d3.max(buildModel.data, (d: any) => {
+        let sumOfCurrentKey = 0;
+        keys.forEach((k) => (sumOfCurrentKey += d[k]));
+        return sumOfCurrentKey;
+      }) || 0
+    );
+  }
+
+  protected override getMaximumValue(buildModel: BuilderModel): number {
+    const keys = buildModel.chartDataSettings.keys;
+
+    return d3.max(buildModel.data, (d: any) => d3.sum(keys, (k) => (d as any)[k])) || 0;
+  }
+
+  protected override getAverageValue(buildModel: BuilderModel): number {
+    const keys = buildModel.chartDataSettings.keys;
+
+    return d3.mean(buildModel.data, (d: any) => d3.sum(keys, (k) => (d as any)[k])) || 0;
+  }
 }

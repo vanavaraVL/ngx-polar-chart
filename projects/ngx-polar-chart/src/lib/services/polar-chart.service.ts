@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {NgxDateGroup, NgxGroupBy, NgxSeriesGroup} from '../models/ngx-group-chart.model';
+import {NgxChartData, NgxDateGroup, NgxGroupBy, NgxSeriesGroup} from '../models/ngx-group-chart.model';
 import moment from 'moment';
 import {GroupDataSetModel, GroupDataModel, StorageEntity, StorageEntityAdditionInfo} from '../models/chart.model';
 import {NgxPolarChartSettings} from '../models/ngx-group-chart-settings.model';
+import {isNgxDate, isNgxString} from '../common/polar-chart-common.utils';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +23,14 @@ export class PolarChartService {
   public chartSettings: Observable<NgxPolarChartSettings> = this.$chartSettings.asObservable();
 
   constructor() {}
+
+  public loadChartData(chartData: NgxChartData): void {
+    if (isNgxDate(chartData)) {
+      this.$dateChartData.next(chartData);
+    } else if (isNgxString(chartData)) {
+      this.$seriesChartData.next(chartData);
+    }
+  }
 
   public loadDateData(chartData: NgxDateGroup): void {
     this.$dateChartData.next(chartData);

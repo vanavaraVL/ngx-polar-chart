@@ -1,9 +1,20 @@
-import {Injectable, Inject} from '@angular/core';
+import {Injectable, ElementRef} from '@angular/core';
 import {BuilderModel} from '../models/builder.model';
 import * as d3 from 'd3';
-import {GroupDataModel} from '../models/chart.model';
+import {GroupDataModel, GroupDataSettingsModel} from '../models/chart.model';
+import {NgxPolarChartSettings} from '../models/ngx-group-chart-settings.model';
 
 export interface IBuilder {
+  buildChart(
+    chartContainer: ElementRef | undefined,
+    chartId: string,
+    data: GroupDataModel[],
+    plotSettings: NgxPolarChartSettings,
+    chartDataSettings: GroupDataSettingsModel,
+  ): void;
+}
+
+export interface IPolarChartBuilder {
   build(buildModel: BuilderModel): void;
   cleanup(): void;
 }
@@ -11,7 +22,7 @@ export interface IBuilder {
 @Injectable({
   providedIn: 'root',
 })
-export abstract class BuilderBase implements IBuilder {
+export abstract class ChartBuilderBase implements IPolarChartBuilder {
   private readonly margin = {top: 70};
 
   private innerRadius: number = 180;
@@ -40,22 +51,30 @@ export abstract class BuilderBase implements IBuilder {
 
   protected getMaximum(buildModel: BuilderModel): number {
     if (!this.maximum) {
-      const keys = buildModel.chartDataSettings.keys;
-
-      this.maximum = d3.max(buildModel.data, (d: GroupDataModel) => d3.max(keys, (k) => (d as any)[k]));
+      this.maximum = this.getMaximumValue(buildModel);
     }
 
-    return this.maximum || 0;
+    return this.maximum;
+  }
+
+  protected getMaximumValue(buildModel: BuilderModel): number {
+    const keys = buildModel.chartDataSettings.keys;
+
+    return d3.max(buildModel.data, (d: GroupDataModel) => d3.max(keys, (k) => (d as any)[k])) || 0;
   }
 
   protected getAverage(buildModel: BuilderModel): number {
     if (!this.average) {
-      const keys = buildModel.chartDataSettings.keys;
-
-      this.average = d3.mean(buildModel.data, (d: GroupDataModel) => d3.mean(keys, (k) => (d as any)[k]));
+      this.average = this.getAverageValue(buildModel);
     }
 
-    return this.average || 0;
+    return this.average;
+  }
+
+  protected getAverageValue(buildModel: BuilderModel): number {
+    const keys = buildModel.chartDataSettings.keys;
+
+    return d3.mean(buildModel.data, (d: GroupDataModel) => d3.mean(keys, (k) => (d as any)[k])) || 0;
   }
 
   protected getMinimum(buildModel: BuilderModel): number {
@@ -82,18 +101,21 @@ export abstract class BuilderBase implements IBuilder {
 
   protected getY(buildModel: BuilderModel): d3.ScaleLinear<number, number, never> {
     if (!this.y) {
-      const keys = buildModel.chartDataSettings.keys;
-
       const innerRadius = this.getInnerRadius(buildModel);
       const outerRadius = this.getOuterRadius(buildModel);
 
-      this.y = d3
-        .scaleLinear()
-        .domain([0, d3.max(buildModel.data, (d) => d3.max(keys, (k: string) => (d as any)[k])) || 0])
-        .range([innerRadius, outerRadius]);
+      const domainRange = this.getYDomain(buildModel);
+
+      this.y = d3.scaleLinear().domain([0, domainRange]).range([innerRadius, outerRadius]);
     }
 
     return this.y;
+  }
+
+  protected getYDomain(buildModel: BuilderModel): number {
+    const keys = buildModel.chartDataSettings.keys;
+
+    return d3.max(buildModel.data, (d) => d3.max(keys, (k: string) => (d as any)[k])) || 0;
   }
 
   protected getZ(buildModel: BuilderModel): d3.ScaleOrdinal<string, unknown, never> {

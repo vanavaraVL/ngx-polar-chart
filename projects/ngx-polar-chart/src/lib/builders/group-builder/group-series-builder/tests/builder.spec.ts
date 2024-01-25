@@ -1,7 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {cloneDeep} from 'lodash';
-import {PolarChartGroupService} from '../../../../ngx-polar-chart-group/polar-chart-group.service';
 import {NgxSeriesGroup} from '../../../../models/ngx-group-chart.model';
 import {Builder} from '../builder';
 import {ChartBuilder} from '../chart.builder';
@@ -9,12 +8,13 @@ import {LegendBuilder} from '../legend.builder';
 import {XAxisBuilder} from '../x-axis.builder';
 import {YAxisBuilder} from '../y-axis.builder';
 import {SeriesSingleGroupMock, SeriesTwoGroupsMock} from '../../../../../tests/mocks/group-series.mock';
-import {NgxPolarChartGroupSeriesComponent} from '../../../../ngx-polar-chart-group/ngx-polar-chart-group-series/ngx-polar-chart-group-series.component';
+import {NgxPolarChartGroupComponent} from '../../../../ngx-polar-chart-group/ngx-polar-chart-group.component';
+import {PolarChartService} from '../../../../services/polar-chart.service';
 
 describe('group series builder', () => {
-  let component: NgxPolarChartGroupSeriesComponent;
-  let fixture: ComponentFixture<NgxPolarChartGroupSeriesComponent>;
-  let service: PolarChartGroupService;
+  let component: NgxPolarChartGroupComponent;
+  let fixture: ComponentFixture<NgxPolarChartGroupComponent>;
+  let service: PolarChartService;
   let builder: Builder;
 
   let chartBuilder: ChartBuilder;
@@ -33,13 +33,13 @@ describe('group series builder', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [PolarChartGroupService, Builder, ChartBuilder, LegendBuilder, XAxisBuilder, YAxisBuilder],
-      declarations: [NgxPolarChartGroupSeriesComponent],
+      providers: [PolarChartService, Builder, ChartBuilder, LegendBuilder, XAxisBuilder, YAxisBuilder],
+      declarations: [NgxPolarChartGroupComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NgxPolarChartGroupSeriesComponent);
+    fixture = TestBed.createComponent(NgxPolarChartGroupComponent);
     component = fixture.componentInstance;
-    service = fixture.componentRef.injector.get(PolarChartGroupService);
+    service = fixture.componentRef.injector.get(PolarChartService);
 
     builder = TestBed.inject(Builder);
     chartBuilder = TestBed.inject(ChartBuilder);

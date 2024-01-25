@@ -11,13 +11,13 @@ import {BuilderModel} from '../../../models/builder.model';
 import {XAxisBuilder} from './x-axis.builder';
 import {YAxisBuilder} from './y-axis.builder';
 import {LegendBuilder} from './legend.builder';
-import {IBuilder} from '../../builder.base';
+import {IPolarChartBuilder, IBuilder} from '../../chart-builder.base';
 
 @Injectable({
   providedIn: 'root',
 })
-export class Builder {
-  private builders: IBuilder[] = [];
+export class Builder implements IBuilder {
+  private builders: IPolarChartBuilder[] = [];
 
   private defaultPlotSettings: NgxPolarChartSettings = {
     width: 960,

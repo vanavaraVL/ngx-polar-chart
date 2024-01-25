@@ -27,19 +27,9 @@ export class Builder implements IBuilder {
       fontSize: 16,
     },
     showToolTip: true,
-    barsSettings: {
-      average: {
-        color: '#30983dd6',
-        showColorBar: true,
-      },
-      maximum: {
-        showColorBar: true,
-        color: '#983036',
-      },
-      minimum: {
-        showColorBar: true,
-        color: '#69b3a2',
-      },
+    labelSettings: {
+      showWeekDays: false,
+      showWeekEndDays: true,
     },
     tickSettings: {
       showTicks: true,
@@ -124,30 +114,12 @@ export class Builder implements IBuilder {
 
     plotSettings.showToolTip ??= this.defaultPlotSettings.showToolTip;
 
-    if (!plotSettings.barsSettings) {
-      plotSettings.barsSettings = {};
+    if (!plotSettings.labelSettings) {
+      plotSettings.labelSettings = {};
     }
 
-    if (!plotSettings.barsSettings.average) {
-      plotSettings.barsSettings.average = {};
-    }
-
-    plotSettings.barsSettings.average.color ??= this.defaultPlotSettings.barsSettings!.average!.color;
-    plotSettings.barsSettings.average.showColorBar ??= this.defaultPlotSettings.barsSettings!.average!.showColorBar;
-
-    if (!plotSettings.barsSettings.maximum) {
-      plotSettings.barsSettings.maximum = {};
-    }
-
-    plotSettings.barsSettings.maximum.color ??= this.defaultPlotSettings.barsSettings!.maximum!.color;
-    plotSettings.barsSettings.maximum.showColorBar ??= this.defaultPlotSettings.barsSettings!.maximum!.showColorBar;
-
-    if (!plotSettings.barsSettings.minimum) {
-      plotSettings.barsSettings.minimum = {};
-    }
-
-    plotSettings.barsSettings.minimum.color ??= this.defaultPlotSettings.barsSettings!.minimum!.color;
-    plotSettings.barsSettings.minimum.showColorBar ??= this.defaultPlotSettings.barsSettings!.minimum!.showColorBar;
+    plotSettings.labelSettings.showWeekDays ??= this.defaultPlotSettings.labelSettings!.showWeekDays;
+    plotSettings.labelSettings.showWeekEndDays ??= this.defaultPlotSettings.labelSettings!.showWeekEndDays;
 
     if (!plotSettings.tickSettings) {
       plotSettings.tickSettings = {};

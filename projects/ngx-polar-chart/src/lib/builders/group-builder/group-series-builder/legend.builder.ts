@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {BuilderModel} from '../../../models/builder.model';
-import {BuilderBase, IBuilder} from '../../builder.base';
+import {ChartBuilderBase, IPolarChartBuilder} from '../../chart-builder.base';
 
 @Injectable({
   providedIn: 'root',
 })
-export class LegendBuilder extends BuilderBase implements IBuilder {
+export class LegendBuilder extends ChartBuilderBase implements IPolarChartBuilder {
   build(buildModel: BuilderModel): void {
     if (!buildModel.chartSettings.showLegend) {
       return;

@@ -22,3 +22,5 @@ export enum NgxGroupBy {
   month,
   year,
 }
+
+export type NgxChartData = NgxDateGroup | NgxSeriesGroup;
