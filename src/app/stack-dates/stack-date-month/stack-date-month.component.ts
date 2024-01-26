@@ -5,11 +5,11 @@ import {NgxPolarChartSettings} from 'NgxPolarChart';
 import {DataSetService} from '../../../services/data-set.service';
 
 @Component({
-  selector: 'app-group-dates-month',
-  templateUrl: './group-dates-month.component.html',
-  styleUrls: ['./group-dates-month.component.scss'],
+  selector: 'app-stack-dates-month',
+  templateUrl: './stack-date-month.component.html',
+  styleUrls: ['./stack-date-month.component.scss'],
 })
-export class GroupDatesMonthComponent implements OnInit, OnDestroy {
+export class StackDatesMonthComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   public groupDateSample: NgxChartData = null!;
@@ -17,6 +17,7 @@ export class GroupDatesMonthComponent implements OnInit, OnDestroy {
   public customSettings: NgxPolarChartSettings = null!;
 
   public title: string = 'Polar chart displayed by month';
+  public previousRoute: string = 'stack-dates-sample';
 
   constructor(private dataSetService: DataSetService) {
     this.loadSamples();

@@ -16,7 +16,7 @@ export class GroupDatesYearComponent implements OnInit, OnDestroy {
 
   public customSettings: NgxPolarChartSettings = null!;
 
-  public title: string = 'Polar chart group by year';
+  public title: string = 'Polar chart displayed by year';
 
   constructor(private dataSetService: DataSetService) {
     this.loadSamples();

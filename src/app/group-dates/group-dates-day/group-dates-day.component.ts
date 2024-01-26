@@ -17,7 +17,7 @@ export class GroupDatesDayComponent implements OnInit, OnDestroy {
 
   public customSettings: NgxPolarChartSettings = null!;
 
-  public title: string = 'Polar chart group by day';
+  public title: string = 'Polar chart displayed by day';
   public groupCount: groupCountSample = groupCountSample.one;
   public groupCountSample = groupCountSample;
 

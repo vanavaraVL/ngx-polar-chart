@@ -1,24 +1,24 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {DataSetService} from '../../../services/data-set.service';
 import {NgxChartData} from 'NgxPolarChart';
 import {NgxPolarChartSettings} from 'NgxPolarChart';
 import {Subscription} from 'rxjs';
-import {groupCountSample} from '../models/group-count.sample.model';
-import {DataSetService} from '../../services/data-set.service';
+import {groupCountSample} from '../../models/group-count.sample.model';
 
 @Component({
-  selector: 'app-stack-series',
-  templateUrl: './stack-series.component.html',
-  styleUrls: ['./stack-series.component.scss'],
+  selector: 'app-stack-dates-day',
+  templateUrl: './stack-date-day.component.html',
+  styleUrls: ['./stack-date-day.component.scss'],
 })
-export class StackSeriesComponent implements OnInit, OnDestroy {
+export class StackDatesDayComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   public groupDateSample: NgxChartData = null!;
 
   public customSettings: NgxPolarChartSettings = null!;
 
-  public title: string = 'Polar chart series';
-  public previousRoute: string = 'stack-series-sample';
+  public title: string = 'Polar chart displayed by day';
+  public previousRoute: string = 'stack-dates-sample';
 
   public groupCount: groupCountSample = groupCountSample.one;
   public groupCountSample = groupCountSample;
@@ -53,12 +53,16 @@ export class StackSeriesComponent implements OnInit, OnDestroy {
   private loadSamples(): void {
     switch (this.groupCount) {
       case groupCountSample.one:
-        this.groupDateSample = this.dataSetService.series1GroupDataSet;
+        this.groupDateSample = this.dataSetService.date1GroupDataSet;
         break;
       case groupCountSample.two:
-        this.groupDateSample = this.dataSetService.series2GroupsDataSet;
+        this.groupDateSample = this.dataSetService.date2GroupsDataSet;
+        break;
+      case groupCountSample.three:
+        this.groupDateSample = this.dataSetService.date3GroupsDataSet;
         break;
     }
+
     this.customSettings = this.dataSetService.customSettings;
   }
 }

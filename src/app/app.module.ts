@@ -5,7 +5,6 @@ import {AppComponent} from './app.component';
 import {NgxPolarChartModule} from 'NgxPolarChart';
 import {AppRoutingModule} from './app-routing.module';
 import {StackSeriesComponent} from './stack-series/stack-series.component';
-import {StackDatesComponent} from './stack-dates/stack-dates.component';
 import {GroupSeriesComponent} from './group-series/group-series.component';
 import {GroupDatesDayComponent} from './group-dates/group-dates-day/group-dates-day.component';
 import {ChartSettingsComponent} from './chart-settings/chart-settings.component';
@@ -16,11 +15,15 @@ import {GroupDatesYearComponent} from './group-dates/group-dates-year/group-date
 import {SamplesComponent} from './samples/samples.component';
 import {SamplesGroupDatesComponent} from './samples/group-dates/samples-group-dates.component';
 import {SamplesGroupSeriesComponent} from './samples/group-series/samples-group-series.component';
+import {StackDatesYearComponent} from './stack-dates/stack-date-year/stack-date-year.component';
+import {StackDatesMonthComponent} from './stack-dates/stack-date-month/stack-date-month.component';
+import {StackDatesDayComponent} from './stack-dates/stack-date-day/stack-date-day.component';
+import {SamplesStackDatesComponent} from './samples/stack-dates/samples-stack-dates.component';
+import {SamplesStackSeriesComponent} from './samples/stack-series/samples-stack-series.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StackDatesComponent,
     SamplesComponent,
     StackSeriesComponent,
     DataSetGeneratorComponent,
@@ -32,6 +35,11 @@ import {SamplesGroupSeriesComponent} from './samples/group-series/samples-group-
     SamplesGroupSeriesComponent,
     GroupDatesYearComponent,
     GroupDatesMonthComponent,
+    StackDatesDayComponent,
+    StackDatesMonthComponent,
+    StackDatesYearComponent,
+    SamplesStackDatesComponent,
+    SamplesStackSeriesComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, NgxPolarChartModule],
   providers: [],

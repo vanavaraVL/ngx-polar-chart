@@ -8,4 +8,7 @@ import {Component, Input} from '@angular/core';
 export class BreadcrumbComponent {
   @Input()
   public currentSample: string = '';
+
+  @Input()
+  public previousRoute?: string;
 }
