@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-basis: 0;
+  align-items: center;
+
+  padding: 10px;
+
+  .dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+}

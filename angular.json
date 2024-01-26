@@ -26,6 +26,7 @@
             "preserveSymlinks": true,
             "assets": [
               "src/favicon.ico",
+              "src/preline.js",
               "src/assets"
             ],
             "styles": [
@@ -100,6 +101,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
+              "src/preline.js",
               "src/assets"
             ],
             "styles": [

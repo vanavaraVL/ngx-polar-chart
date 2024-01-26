@@ -1,0 +1,75 @@
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+
+  <app-breadcrumb [currentSample]="title"></app-breadcrumb>
+
+  <nav class="max-w-6xl mx-auto grid sm:flex gap-y-px sm:gap-y-0 sm:gap-x-4" aria-label="Tabs" role="tablist">
+    <button type="button" class="hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full flex flex-col text-start hover:bg-gray-100 p-3 md:p-5 rounded-xl dark:hs-tab-active:bg-white/[.05] dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 active" id="tabs-with-card-item-1" data-hs-tab="#tabs-with-card-1" aria-controls="tabs-with-card-1" role="tab">
+      <span class="mt-5">
+        <span class="hs-tab-active:text-blue-600 block font-semibold text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-gray-200">Polar chart</span>
+        <span class="hidden lg:block mt-2 text-gray-800 dark:text-gray-200">The highlights are turned off</span>
+      </span>
+    </button>
+
+    <button type="button" class="hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full flex flex-col text-start hover:bg-gray-100 p-3 md:p-5 rounded-xl dark:hs-tab-active:bg-white/[.05] dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" id="tabs-with-card-item-2" data-hs-tab="#tabs-with-card-2" aria-controls="tabs-with-card-2" role="tab">
+      <span class="mt-5">
+        <span class="hs-tab-active:text-blue-600 block font-semibold text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-gray-200">Polar chart</span>
+        <span class="hidden lg:block mt-2 text-gray-800 dark:text-gray-200">Default settings</span>
+      </span>
+    </button>
+
+    <button type="button" class="hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full flex flex-col text-start hover:bg-gray-100 p-3 md:p-5 rounded-xl dark:hs-tab-active:bg-white/[.05] dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" id="tabs-with-card-item-3" data-hs-tab="#tabs-with-card-3" aria-controls="tabs-with-card-3" role="tab">
+      <span class="mt-5">
+        <span class="hs-tab-active:text-blue-600 block font-semibold text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-gray-200">Used data set description</span>
+        <span class="hidden lg:block mt-2 text-gray-800 dark:text-gray-200">The data set in the example has been used for <b>two groups</b></span>
+      </span>
+    </button>
+  </nav>
+
+  <app-dataset-generator></app-dataset-generator>
+
+  <div class="mt-6 md:mt-8">
+    <div id="tabs-with-card-1" role="tabpanel" aria-labelledby="tabs-with-card-item-1">
+      <div class="max-w-[1140px] lg:pb-32 relative">
+        <figure class="ms-auto me-20 relative z-[1] max-w-full w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]">
+          <div class="rounded-b-lg">
+            <ngx-polar-chart-group [chartData]="groupDateSample" [chartSettings]="customSettings"></ngx-polar-chart-group>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <div id="tabs-with-card-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-card-item-2">
+      <div class="max-w-[1140px] lg:pb-32 relative">
+        <figure class="ms-auto me-20 relative z-[1] max-w-full w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]">
+          <div class="rounded-b-lg">
+            <app-chart-settings></app-chart-settings>
+            <ngx-polar-chart-group [chartData]="groupDateSample"></ngx-polar-chart-group>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <div id="tabs-with-card-3" class="hidden" role="tabpanel" aria-labelledby="tabs-with-card-item-3">
+      <div class="max-w-[1140px] lg:pb-32 relative">
+        <figure class="ms-auto me-20 relative z-[1] max-w-full w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]">
+          <div class="relative flex items-center max-w-[50rem] bg-white border-b border-gray-100 rounded-t-lg py-2 px-24 dark:bg-gray-800 dark:border-gray-700">
+            <div class="flex space-x-1 absolute top-2/4 start-4 -translate-y-1">
+              <span class="w-2 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></span>
+              <span class="w-2 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></span>
+              <span class="w-2 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></span>
+            </div>
+            <div class="flex justify-center items-center w-full h-full bg-gray-200 text-[1.0rem] text-gray-800 rounded-sm sm:text-[1.0rem] dark:bg-gray-700 dark:text-gray-200">
+              <p>
+                ngx-polar-chart-group [chartData]="..." [chartSettings]="..."
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-b-lg">
+            <textarea class="py-3 px-0 block w-full bg-transparent border-t-transparent border-b-2 border-x-transparent border-b-gray-200 text-sm focus:border-blue-500 focus:border-t-transparent focus:border-x-transparent focus:border-b-blue-500 focus:ring-0 disabled:opacity-50 disabled:pointer-events-none dark:border-b-gray-700 dark:text-gray-400 dark:focus:ring-gray-600 dark:focus:border-b-gray-600" rows="30">{{getSingleGroupDataSet()}}</textarea>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>
