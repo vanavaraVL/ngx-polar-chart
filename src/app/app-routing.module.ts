@@ -13,6 +13,8 @@ import {StackDatesMonthComponent} from './stack-dates/stack-date-month/stack-dat
 import {StackDatesYearComponent} from './stack-dates/stack-date-year/stack-date-year.component';
 import {StackSeriesComponent} from './stack-series/stack-series.component';
 import {SamplesStackSeriesComponent} from './samples/stack-series/samples-stack-series.component';
+import {InstallationComponent} from './installation/installation.component';
+import {SettingsComponent} from './settings/settings.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,8 @@ const routes: Routes = [
       {path: 'stack-dates-month', component: StackDatesMonthComponent},
       {path: 'stack-dates-year', component: StackDatesYearComponent},
       {path: 'stack-series', component: StackSeriesComponent},
+      {path: 'installation', component: InstallationComponent},
+      {path: 'settings', component: SettingsComponent},
     ],
   },
 ];

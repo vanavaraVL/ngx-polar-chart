@@ -1,0 +1,241 @@
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <!-- Title -->
+  <div class="max-w-2xl mx-auto mb-10 lg:mb-14">
+    <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">How to install and use</h2>
+  </div>
+  <!-- End Title -->
+
+  <div class="max-w-2xl mx-auto divide-y divide-gray-200 dark:divide-gray-700">
+    <div class="py-8 first:pt-0 last:pb-0">
+      <div class="flex gap-x-5">
+        <svg class="flex-shrink-0 mt-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></svg>
+
+        <div>
+          <h3 class="md:text-lg font-semibold text-gray-800 dark:text-gray-200">
+            Install via npm
+          </h3>
+          <p class="mt-1 text-gray-500">
+            npm install @vanavara/ngx-polar-chart --save
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-8 first:pt-0 last:pb-0">
+      <div class="flex gap-x-5">
+        <svg class="flex-shrink-0 mt-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></svg>
+
+        <div>
+          <h3 class="md:text-lg font-semibold text-gray-800 dark:text-gray-200">
+            Import into your Angular application
+          </h3>
+          <p class="mt-1 text-gray-500 code-container">
+            import {{ '{' }}NgxPolarChartModule{{ '}' }} from 'NgxPolarChart';<br><br>
+
+            @NgModule({{ '{' }}<br>
+            &nbsp;&nbsp;&nbsp;declarations: [],<br>
+            &nbsp;&nbsp;&nbsp;imports: [NgxPolarChartModule],<br>
+            &nbsp;&nbsp;&nbsp;providers: [],<br>
+            &nbsp;&nbsp;&nbsp;bootstrap: [AppComponent],<br>
+            {{ '}' }})<br>
+            export class AppModule {{ '{' }}{{ '}' }}<br>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-8 first:pt-0 last:pb-0">
+      <div class="flex gap-x-5">
+        <svg class="flex-shrink-0 mt-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></svg>
+
+        <div>
+          <h3 class="md:text-lg font-semibold text-gray-800 dark:text-gray-200">
+            Use component for group polar chart in your template
+          </h3>
+          <p class="mt-1 text-gray-500">
+            &lt;ngx-polar-chart-group [chartData]="dateSample"&gt;&lt;/ngx-polar-chart-group&gt;
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-8 first:pt-0 last:pb-0">
+      <div class="flex gap-x-5">
+        <svg class="flex-shrink-0 mt-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></svg>
+
+        <div>
+          <h3 class="md:text-lg font-semibold text-gray-800 dark:text-gray-200">
+            Use component for stack polar chart in your template
+          </h3>
+          <p class="mt-1 text-gray-500">
+            &lt;ngx-polar-chart-stack [chartData]="dateSample"&gt;&lt;/ngx-polar-chart-stack&gt;
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-8 first:pt-0 last:pb-0">
+      <div class="flex gap-x-5">
+        <svg class="flex-shrink-0 mt-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></svg>
+
+        <div>
+          <h3 class="md:text-lg font-semibold text-gray-800 dark:text-gray-200">
+            [chartData] overview
+          </h3>
+          <p class="mt-1 text-gray-500">
+            Chart data is one of the following types in the library:<br><br>type NgxChartData = NgxDateGroup | NgxSeriesGroup;<br><br>
+            NgxDateGroup is being used for date data and allows to display result data set by day, month or year<br><br>
+            NgxSeriesGroup is being used for series and allows to display each series on the chart
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-8 first:pt-0 last:pb-0">
+      <div class="flex gap-x-5">
+        <svg class="flex-shrink-0 mt-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></svg>
+
+        <div>
+          <h3 class="md:text-lg font-semibold text-gray-800 dark:text-gray-200">
+            [chartSettings] overview
+          </h3>
+          <p class="mt-1 text-gray-500">
+            &lt;ngx-polar-chart-group [chartSettings]="settingsSample"&gt;&lt;/ngx-polar-chart-group&gt;<br>
+            &lt;ngx-polar-chart-stack [chartSettings]="settingsSample"&gt;&lt;/ngx-polar-chart-stack&gt;<br>
+            <br>
+            Chart settings is a type in the library:<br><br>
+            NgxPolarChartSettings<br><br>
+            If chart settings is null then default settings will be applied. By default it means:
+          </p>
+          <ul class="mt-7 space-y-2.5 text-sm">
+            <li class="flex space-x-2">
+              <svg class="flex-shrink-0 mt-0.5 h-4 w-4 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+              <span class="text-gray-800 dark:text-gray-400">
+                Always show tool tip with value of certain item in the group
+              </span>
+            </li>
+
+            <li class="flex space-x-2">
+              <svg class="flex-shrink-0 mt-0.5 h-4 w-4 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+              <span class="text-gray-800 dark:text-gray-400">
+                Always highlight average, maximum and minimum values on the chart
+              </span>
+            </li>
+
+            <li class="flex space-x-2">
+              <svg class="flex-shrink-0 mt-0.5 h-4 w-4 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+              <span class="text-gray-800 dark:text-gray-400">
+                Always auto generate colors in hex format for each group
+              </span>
+            </li>
+
+            <li class="flex space-x-2">
+              <svg class="flex-shrink-0 mt-0.5 h-4 w-4 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+              <span class="text-gray-800 dark:text-gray-400">
+                In case of NgxDateGroup (we work with dates and display by day of month) always show weekends of certain month
+              </span>
+            </li>
+          </ul>
+          <br>
+          <p class="mt-1 text-gray-500">
+            All parameters are optional. And if chart settings is not null then nullable parameters will be overriden by default values
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-8 first:pt-0 last:pb-0">
+      <div class="flex gap-x-5">
+        <svg class="flex-shrink-0 mt-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></svg>
+
+        <div>
+          <h3 class="md:text-lg font-semibold text-gray-800 dark:text-gray-200">
+            How to display data set by day, month or year in case of Date (NgxDateGroup)
+          </h3>
+          <p class="mt-1 text-gray-500">
+            Just use NgxGroupBy enum. NgxGroupBy = [day, month, year]<br><br>
+
+            NgxDateGroup {{ '{' }}<br>
+            &nbsp;&nbsp;&nbsp;groups: NgxGroups&lt;Date&gt;[];<br>
+            &nbsp;&nbsp;&nbsp;groupBy?: NgxGroupBy;<br>
+            {{ '}' }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-8 first:pt-0 last:pb-0">
+      <div class="flex gap-x-5">
+        <svg class="flex-shrink-0 mt-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></svg>
+
+        <div>
+          <h3 class="md:text-lg font-semibold text-gray-800 dark:text-gray-200">
+            Localization in case of NgxDateGroup (groups with date)
+          </h3>
+          <p class="mt-1 text-gray-500">
+            In the chart settings ([chartSettings]) you can specify a parameter:<br><br>
+
+            export interface NgxPolarChartSettings {{ '{' }}<br>
+            &nbsp;&nbsp;&nbsp;locale?: string;<br>
+            {{ '}' }}
+            <br>
+            to make your chart localizable
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-8 first:pt-0 last:pb-0">
+      <div class="flex gap-x-5">
+        <svg class="flex-shrink-0 mt-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></svg>
+
+        <div>
+          <h3 class="md:text-lg font-semibold text-gray-800 dark:text-gray-200">
+            Number of groups
+          </h3>
+          <p class="mt-1 text-gray-500">
+            Chart was tested for ten (10) groups of date and series types. But in theory you are able to use from 1 to many.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  <div class="py-8 first:pt-0 last:pb-0">
+    <div class="flex gap-x-5">
+      <svg class="flex-shrink-0 mt-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></svg>
+
+      <div>
+        <h3 class="md:text-lg font-semibold text-gray-800 dark:text-gray-200">
+          Dependencies
+        </h3>
+        <p class="mt-1 text-gray-500">
+          The library depends on the following packages:
+        </p>
+        <ul class="mt-7 space-y-2.5 text-sm">
+          <li class="flex space-x-2">
+            <svg class="flex-shrink-0 mt-0.5 h-4 w-4 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+            <span class="text-gray-800 dark:text-gray-400">
+              d3 [version 7.8.5]
+            </span>
+          </li>
+
+          <li class="flex space-x-2">
+            <svg class="flex-shrink-0 mt-0.5 h-4 w-4 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+            <span class="text-gray-800 dark:text-gray-400">
+              lodash [version 4.17.21]
+            </span>
+          </li>
+
+          <li class="flex space-x-2">
+            <svg class="flex-shrink-0 mt-0.5 h-4 w-4 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+            <span class="text-gray-800 dark:text-gray-400">
+              moment [version 2.30.1]
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>

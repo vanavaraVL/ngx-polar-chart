@@ -20,6 +20,8 @@ import {StackDatesMonthComponent} from './stack-dates/stack-date-month/stack-dat
 import {StackDatesDayComponent} from './stack-dates/stack-date-day/stack-date-day.component';
 import {SamplesStackDatesComponent} from './samples/stack-dates/samples-stack-dates.component';
 import {SamplesStackSeriesComponent} from './samples/stack-series/samples-stack-series.component';
+import {InstallationComponent} from './installation/installation.component';
+import {SettingsComponent} from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import {SamplesStackSeriesComponent} from './samples/stack-series/samples-stack-
     StackDatesYearComponent,
     SamplesStackDatesComponent,
     SamplesStackSeriesComponent,
+    InstallationComponent,
+    SettingsComponent,
   ],
   imports: [AppRoutingModule, BrowserModule, NgxPolarChartModule],
   providers: [],

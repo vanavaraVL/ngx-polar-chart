@@ -18,6 +18,8 @@ export class GroupSeriesComponent implements OnInit, OnDestroy {
   public customSettings: NgxPolarChartSettings = null!;
 
   public title: string = 'Polar chart series';
+  public previousRoute: string = 'group-series-sample';
+
   public groupCount: groupCountSample = groupCountSample.one;
   public groupCountSample = groupCountSample;
 

@@ -1,6 +1,6 @@
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
 
-  <app-breadcrumb [currentSample]="title"></app-breadcrumb>
+  <app-breadcrumb [currentSample]="title" [previousRoute]="previousRoute"></app-breadcrumb>
 
   <nav class="max-w-6xl mx-auto grid sm:flex gap-y-px sm:gap-y-0 sm:gap-x-4" aria-label="Tabs" role="tablist">
     <button type="button" class="hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full flex flex-col text-start hover:bg-gray-100 p-3 md:p-5 rounded-xl dark:hs-tab-active:bg-white/[.05] dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 active" id="tabs-with-card-item-1" data-hs-tab="#tabs-with-card-1" aria-controls="tabs-with-card-1" role="tab">
@@ -65,7 +65,7 @@
       <div class="max-w-[1140px] lg:pb-32 relative">
         <figure class="ms-auto me-20 relative z-[1] max-w-full w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]">
           <div class="rounded-b-lg">
-            <app-chart-settings></app-chart-settings>
+            <app-chart-settings [hideWeekEnds]="true"></app-chart-settings>
             <ngx-polar-chart-group [chartData]="groupDateSample"></ngx-polar-chart-group>
           </div>
         </figure>

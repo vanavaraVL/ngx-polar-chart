@@ -1,0 +1,366 @@
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div class="grid md:grid-cols-2 gap-10">
+    <div class="md:col-span-2">
+      <div class="max-w-xs">
+        <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">Settings and types</h2>
+        <p class="mt-1 hidden md:block text-gray-600 dark:text-gray-400">Most common used types in the library for settings and data</p>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto md:col-span-5">
+      <div class="hs-accordion-group divide-y divide-gray-200 dark:divide-gray-700">
+        <div class="hs-accordion pb-3 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
+          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
+            NgxPolarChartSettings
+            <svg class="hs-accordion-active:hidden block flex-shrink-0 w-5 h-5 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+            <svg class="hs-accordion-active:block hidden flex-shrink-0 w-5 h-5 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6" /></svg>
+          </button>
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
+
+            <div class="-m-1.5 overflow-auto">
+              <div class="p-1.5 min-w-full inline-block align-middle">
+                <div class="overflow-hidden">
+                  <div class="table border-collapse table-auto w-full divide-y divide-gray-200 dark:divide-gray-700">
+                    <div class="table-header-group">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Field name</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Type</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Mandatory</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Description</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Default value</div>
+                      </div>
+                    </div>
+                    <div class="table-row-group divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-slate-800">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">width</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">number</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">no</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">the width of chart</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">960</div>
+                      </div>
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">height</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">number</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">no</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">the height of chart</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">800</div>
+                      </div>
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">locale</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">string</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">no</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">locale for the chart. as momentJS is used<br> see ref for its locales</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">'en-US'</div>
+                      </div>
+
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">fontSettings</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          <p class="mt-1 text-gray-500">
+                            {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;fontFamily?: string;<br>
+                            &nbsp;&nbsp;&nbsp;fontSize?: number;<br>
+                            {{ '}' }}
+                          </p>
+                        </div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">no</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">the height of chart</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          <p class="mt-1 text-gray-500">
+                            {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;fontFamily: 'sans-serif';<br>
+                            &nbsp;&nbsp;&nbsp;fontSize: 16;<br>
+                            {{ '}' }}
+                          </p>
+                        </div>
+                      </div>
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">showToolTip</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">boolean</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">no</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">show tool tips</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">true</div>
+                      </div>
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">showLegend</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">boolean</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">no</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">shows legend in the chart</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">true</div>
+                      </div>
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">barsSettings</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          <p class="mt-1 text-gray-500">
+                            {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;average?: {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color?: string;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showColorBar?: boolean;<br>
+                            &nbsp;&nbsp;&nbsp;{{ '}' }}<br>
+                            &nbsp;&nbsp;&nbsp;maximum?: {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color?: string;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showColorBar?: boolean;<br>
+                            &nbsp;&nbsp;&nbsp;{{ '}' }}<br>
+                            &nbsp;&nbsp;&nbsp;weekend?: {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color?: string;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showColorBar?: boolean;<br>
+                            &nbsp;&nbsp;&nbsp;{{ '}' }}<br>
+                            &nbsp;&nbsp;&nbsp;minimum?: {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color?: string;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showColorBar?: boolean;<br>
+                            &nbsp;&nbsp;&nbsp;{{ '}' }}<br>
+                            {{ '}' }}
+                          </p>
+                        </div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">no</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">describes colors and capability for values (min, max, avg)<br> and weekends (in case of date and displaying by day)</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          <p class="mt-1 text-gray-500">
+                            {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;average: {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: '#30983dd6';<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showColorBar: true;<br>
+                            &nbsp;&nbsp;&nbsp;{{ '}' }}<br>
+                            &nbsp;&nbsp;&nbsp;maximum: {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: '#983036';<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showColorBar: true;<br>
+                            &nbsp;&nbsp;&nbsp;{{ '}' }}<br>
+                            &nbsp;&nbsp;&nbsp;weekend: {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: '#80ddc8';<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showColorBar: true;<br>
+                            &nbsp;&nbsp;&nbsp;{{ '}' }}<br>
+                            &nbsp;&nbsp;&nbsp;minimum?: {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: '#69b3a2';<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showColorBar: true;<br>
+                            &nbsp;&nbsp;&nbsp;{{ '}' }}<br>
+                            {{ '}' }}
+                          </p>
+                        </div>
+                      </div>
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">labelSettings</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          <p class="mt-1 text-gray-500">
+                            {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;showWeekDays?: boolean;<br>
+                            &nbsp;&nbsp;&nbsp;showWeekEndDays?: boolean;<br>
+                            {{ '}' }}
+                          </p>
+                        </div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">no</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">describes capability for showing weekdays and weekends<br> on the chart (in case of date and displaying by day)</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          <p class="mt-1 text-gray-500">
+                            {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;showWeekDays: false;<br>
+                            &nbsp;&nbsp;&nbsp;showWeekEndDays: true;<br>
+                            {{ '}' }}
+                          </p>
+                        </div>
+                      </div>
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">tickSettings</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          <p class="mt-1 text-gray-500">
+                            {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;showTicks?: boolean;<br>
+                            &nbsp;&nbsp;&nbsp;showTicksLabels?: boolean;<br>
+                            {{ '}' }}
+                          </p>
+                        </div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">no</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">describes capability for showing rounded circles<br> for inside the chart with labels</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          <p class="mt-1 text-gray-500">
+                            {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;showTicks: true;<br>
+                            &nbsp;&nbsp;&nbsp;showTicksLabels: true;<br>
+                            {{ '}' }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="hs-accordion pt-6 pb-3" id="hs-basic-with-title-and-arrow-stretched-heading-two">
+          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-two">
+            NgxDateGroup
+            <svg class="hs-accordion-active:hidden block flex-shrink-0 w-5 h-5 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+            <svg class="hs-accordion-active:block hidden flex-shrink-0 w-5 h-5 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6" /></svg>
+          </button>
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-two">
+            <div class="-m-1.5 overflow-auto">
+              <div class="p-1.5 min-w-full inline-block align-middle">
+                <div class="overflow-hidden">
+                  <div class="table border-collapse table-auto w-full divide-y divide-gray-200 dark:divide-gray-700">
+                    <div class="table-header-group">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Field name</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Type</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Mandatory</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Description</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Default</div>
+                      </div>
+                    </div>
+                    <div class="table-row-group divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-slate-800">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">groups</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">array of NgxGroups&lt;Date&gt;[]</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">yes</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">array of groups</div>
+                      </div>
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">groupBy</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          <p class="mt-1 text-gray-500">
+                            enum NgxGroupBy{{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;day,<br>
+                            &nbsp;&nbsp;&nbsp;month,<br>
+                            &nbsp;&nbsp;&nbsp;year,<br>
+                            {{ '}' }}
+                          </p>
+                        </div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">no</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">displaying day, month or year on the chart</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">day</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hs-accordion pt-6 pb-3" id="hs-basic-with-title-and-arrow-stretched-heading-three">
+          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-three">
+            NgxSeriesGroup
+            <svg class="hs-accordion-active:hidden block flex-shrink-0 w-5 h-5 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+            <svg class="hs-accordion-active:block hidden flex-shrink-0 w-5 h-5 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6" /></svg>
+          </button>
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-three" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-three">
+
+            <div class="-m-1.5 overflow-auto">
+              <div class="p-1.5 min-w-full inline-block align-middle">
+                <div class="overflow-hidden">
+                  <div class="table border-collapse table-auto w-full divide-y divide-gray-200 dark:divide-gray-700">
+                    <div class="table-header-group">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Field name</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Type</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Mandatory</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Description</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Default</div>
+                      </div>
+                    </div>
+                    <div class="table-row-group divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-slate-800">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">groups</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">array of NgxGroups&lt;string&gt;[]</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">yes</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">array of groups</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hs-accordion pt-6 pb-3" id="hs-basic-with-title-and-arrow-stretched-heading-four">
+          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-three">
+            NgxGroups&lt;T&gt;
+            <svg class="hs-accordion-active:hidden block flex-shrink-0 w-5 h-5 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+            <svg class="hs-accordion-active:block hidden flex-shrink-0 w-5 h-5 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6" /></svg>
+          </button>
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-four" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-three">
+
+            <div class="-m-1.5 overflow-auto">
+              <div class="p-1.5 min-w-full inline-block align-middle">
+                <div class="overflow-hidden">
+                  <div class="table border-collapse table-auto w-full divide-y divide-gray-200 dark:divide-gray-700">
+                    <div class="table-header-group">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Field name</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Type</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Mandatory</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Description</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Default</div>
+                      </div>
+                    </div>
+                    <div class="table-row-group divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-slate-800">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">name</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">string</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">yes</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">describes the group name</div>
+                      </div>
+                    </div>
+                    <div class="table-row-group divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-slate-800">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">items</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">array of NgxChart&lt;T&gt;</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">yes</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">describes items in the group</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hs-accordion pt-6 pb-3" id="hs-basic-with-title-and-arrow-stretched-heading-five">
+          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-three">
+            NgxChart&lt;T&gt;
+            <svg class="hs-accordion-active:hidden block flex-shrink-0 w-5 h-5 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+            <svg class="hs-accordion-active:block hidden flex-shrink-0 w-5 h-5 text-gray-600 group-hover:text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6" /></svg>
+          </button>
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-five" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-three">
+
+            <div class="-m-1.5 overflow-auto">
+              <div class="p-1.5 min-w-full inline-block align-middle">
+                <div class="overflow-hidden">
+                  <div class="table border-collapse table-auto w-full divide-y divide-gray-200 dark:divide-gray-700">
+                    <div class="table-header-group">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Field name</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Type</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Mandatory</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Description</div>
+                        <div class="table-cell px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Default</div>
+                      </div>
+                    </div>
+                    <div class="table-row-group divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-slate-800">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">key</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">string</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">yes</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">describes the key of item in the group</div>
+                      </div>
+                    </div>
+                    <div class="table-row-group divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-slate-800">
+                      <div class="table-row">
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">value</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">number</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">yes</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">describes the value of item in the group </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
