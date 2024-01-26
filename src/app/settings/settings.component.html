@@ -93,6 +93,7 @@
                         <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                           <p class="mt-1 text-gray-500">
                             {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;groupColors?: string[];<br>
                             &nbsp;&nbsp;&nbsp;average?: {{ '{' }}<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color?: string;<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showColorBar?: boolean;<br>
@@ -113,10 +114,11 @@
                           </p>
                         </div>
                         <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">no</div>
-                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">describes colors and capability for values (min, max, avg)<br> and weekends (in case of date and displaying by day)</div>
+                        <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">describes colors and capability for values (min, max, avg)<br> and weekends (in case of date and displaying by day)<br><br>also groupColors can contain array of custom<br>colors depends on number of groups</div>
                         <div class="table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                           <p class="mt-1 text-gray-500">
                             {{ '{' }}<br>
+                            &nbsp;&nbsp;&nbsp;groupColors: [generated automatically<br> based on number of groups];<br>
                             &nbsp;&nbsp;&nbsp;average: {{ '{' }}<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: '#30983dd6';<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showColorBar: true;<br>
