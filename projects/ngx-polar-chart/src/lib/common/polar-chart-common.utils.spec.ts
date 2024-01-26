@@ -5,7 +5,7 @@ import {cloneDeep} from 'lodash';
 import {SeriesSingleGroupMock} from '../../tests/mocks/group-series.mock';
 import {isDataEmpty, isNgxDate, isNgxString} from './polar-chart-common.utils';
 import {PolarChartService} from '../services/polar-chart.service';
-import {GroupDataSetModel} from '../../../../../dist/ngx-polar-chart/lib/models/chart.model';
+import {ChartDataSetModel} from '../models/chart.model';
 
 describe('common utils', () => {
   let groupDateByDaySingleGroupMock: NgxDateGroup;
@@ -13,7 +13,7 @@ describe('common utils', () => {
 
   let service: PolarChartService;
 
-  let resultGroupDate: GroupDataSetModel;
+  let resultGroupDate: ChartDataSetModel;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
