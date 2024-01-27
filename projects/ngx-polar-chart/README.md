@@ -11,8 +11,14 @@ Angular version is used: [version 14.2.0]
 
 ### Chart Types
 
-- Grouped
-- Stacked
+- Grouped<br>
+Some examples:<br>
+![Polar chart](https://github.com/vanavaraVL/ngx-polar-chart/raw/master/docs/assets/sample-one-group.png)
+![Polar chart](	https://github.com/vanavaraVL/ngx-polar-chart/raw/master/docs/assets/sample-two-group.png)
+![Polar chart](	https://github.com/vanavaraVL/ngx-polar-chart/raw/master/docs/assets/sample-one-series.png)
+- Stacked<br>
+Some examples:<br>
+![Polar chart](	https://github.com/vanavaraVL/ngx-polar-chart/raw/master/docs/assets/sample-three-stack.png)
 
 ### Displaying
 

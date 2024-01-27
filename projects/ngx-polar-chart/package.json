@@ -1,6 +1,6 @@
 {
   "name": "@vanavara/ngx-polar-chart",
-  "version": "1.14.2",
+  "version": "1.14.3",
   "description": "Angular polar chart wrapper for d3 library",
   "repository": {
     "type": "git",
