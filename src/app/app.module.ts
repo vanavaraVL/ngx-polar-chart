@@ -12,7 +12,6 @@ import {DataSetGeneratorComponent} from './data-generator/data-generator.compone
 import {BreadcrumbComponent} from './breadcrumbs/breadcrumbs.component';
 import {GroupDatesMonthComponent} from './group-dates/group-dates-month/group-dates-month.component';
 import {GroupDatesYearComponent} from './group-dates/group-dates-year/group-dates-year.component';
-import {SamplesComponent} from './samples/samples.component';
 import {SamplesGroupDatesComponent} from './samples/group-dates/samples-group-dates.component';
 import {SamplesGroupSeriesComponent} from './samples/group-series/samples-group-series.component';
 import {StackDatesYearComponent} from './stack-dates/stack-date-year/stack-date-year.component';
@@ -26,7 +25,6 @@ import {SettingsComponent} from './settings/settings.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SamplesComponent,
     StackSeriesComponent,
     DataSetGeneratorComponent,
     GroupDatesDayComponent,

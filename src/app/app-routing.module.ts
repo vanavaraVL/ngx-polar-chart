@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {SamplesComponent} from './samples/samples.component';
 import {GroupDatesDayComponent} from './group-dates/group-dates-day/group-dates-day.component';
 import {GroupDatesMonthComponent} from './group-dates/group-dates-month/group-dates-month.component';
 import {GroupDatesYearComponent} from './group-dates/group-dates-year/group-dates-year.component';
@@ -15,17 +14,13 @@ import {StackSeriesComponent} from './stack-series/stack-series.component';
 import {SamplesStackSeriesComponent} from './samples/stack-series/samples-stack-series.component';
 import {InstallationComponent} from './installation/installation.component';
 import {SettingsComponent} from './settings/settings.component';
+import {AppComponent} from './app.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SamplesComponent,
+    component: AppComponent,
     children: [
-      {
-        path: '',
-        redirectTo: 'group-dates-sample',
-        pathMatch: 'full',
-      },
       {path: 'group-dates-sample', component: SamplesGroupDatesComponent},
       {path: 'group-series-sample', component: SamplesGroupSeriesComponent},
       {path: 'group-dates-day', component: GroupDatesDayComponent},
@@ -40,6 +35,7 @@ const routes: Routes = [
       {path: 'stack-series', component: StackSeriesComponent},
       {path: 'installation', component: InstallationComponent},
       {path: 'settings', component: SettingsComponent},
+      {path: '**', redirectTo: '/group-dates-sample', pathMatch: 'full'},
     ],
   },
 ];
