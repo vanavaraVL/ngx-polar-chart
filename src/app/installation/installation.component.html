@@ -15,7 +15,13 @@
             Install via npm
           </h3>
           <p class="mt-1 text-gray-500">
-            npm install @vanavara/ngx-polar-chart --save
+            npm install @vanavara/ngx-polar-chart --save<br><br>
+
+            The library depends on the following packages (so they could be required if you don't have):<br>
+            npm install moment --save<br>
+            npm install lodash --save<br>
+            npm install d3 --save<br>
+            npm install @types/d3 --save-dev<br>
           </p>
         </div>
       </div>
@@ -30,7 +36,7 @@
             Import into your Angular application
           </h3>
           <p class="mt-1 text-gray-500 code-container">
-            import {{ '{' }}NgxPolarChartModule{{ '}' }} from 'NgxPolarChart';<br><br>
+            import {{ '{' }}NgxPolarChartModule{{ '}' }} from '@vanavara/ngx-polar-chart';<br><br>
 
             @NgModule({{ '{' }}<br>
             &nbsp;&nbsp;&nbsp;declarations: [],<br>

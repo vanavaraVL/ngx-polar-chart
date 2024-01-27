@@ -28,14 +28,23 @@ Both of chart types support custom displaying by date, month and year in case of
 
 To use ngx-polar-chart in your project install it via [npm](https://www.npmjs.com/package/@vanavara/ngx-polar-chart):
 
-```powerShell
+```bash
 npm install @vanavara/ngx-polar-chart --save
+```
+
+The library depends on the following packages (so they could be required if you don't have):
+
+```bash
+npm install moment --save
+npm install loadh --save
+npm install d3 --save
+npm install @types/d3 --save-dev
 ```
 
 Provide information about installed library module in the AppModule of your application:
 
 ```typescript
-import {NgxPolarChartModule} from 'NgxPolarChart';
+import {NgxPolarChartModule} from '@vanavara/ngx-polar-chart';
 
 @NgModule({
   declarations: [],
