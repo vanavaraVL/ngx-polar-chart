@@ -12,7 +12,7 @@ import {DataSetService} from '../../../services/data-set.service';
 export class StackDatesYearComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
-  public groupDateSample: NgxChartData = null!;
+  public stackDateSample: NgxChartData = null!;
 
   public customSettings: NgxPolarChartSettings = null!;
 
@@ -38,11 +38,11 @@ export class StackDatesYearComponent implements OnInit, OnDestroy {
   }
 
   public getSingleGroupDataSet(): string {
-    return JSON.stringify(this.groupDateSample, null, '\t');
+    return JSON.stringify(this.stackDateSample, null, '\t');
   }
 
   private loadSamples(): void {
-    this.groupDateSample = this.dataSetService.date2GroupsDataSetByYear;
+    this.stackDateSample = this.dataSetService.date2GroupsDataSetByYear;
     this.customSettings = this.dataSetService.customSettings;
   }
 }

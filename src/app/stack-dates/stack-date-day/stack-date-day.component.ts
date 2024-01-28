@@ -13,7 +13,7 @@ import {groupCountSample} from '../../models/group-count.sample.model';
 export class StackDatesDayComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
-  public groupDateSample: NgxChartData = null!;
+  public stackDateSample: NgxChartData = null!;
 
   public customSettings: NgxPolarChartSettings = null!;
 
@@ -42,7 +42,7 @@ export class StackDatesDayComponent implements OnInit, OnDestroy {
   }
 
   public getSingleGroupDataSet(): string {
-    return JSON.stringify(this.groupDateSample, null, '\t');
+    return JSON.stringify(this.stackDateSample, null, '\t');
   }
 
   public setGroup(groupCount: groupCountSample): void {
@@ -53,13 +53,13 @@ export class StackDatesDayComponent implements OnInit, OnDestroy {
   private loadSamples(): void {
     switch (this.groupCount) {
       case groupCountSample.one:
-        this.groupDateSample = this.dataSetService.date1GroupDataSet;
+        this.stackDateSample = this.dataSetService.date1GroupDataSet;
         break;
       case groupCountSample.two:
-        this.groupDateSample = this.dataSetService.date2GroupsDataSet;
+        this.stackDateSample = this.dataSetService.date2GroupsDataSet;
         break;
       case groupCountSample.three:
-        this.groupDateSample = this.dataSetService.date3GroupsDataSet;
+        this.stackDateSample = this.dataSetService.date3GroupsDataSet;
         break;
     }
 

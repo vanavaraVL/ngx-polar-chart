@@ -13,7 +13,7 @@ import {DataSetService} from '../../services/data-set.service';
 export class StackSeriesComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
-  public groupDateSample: NgxChartData = null!;
+  public stackSeriesSample: NgxChartData = null!;
 
   public customSettings: NgxPolarChartSettings = null!;
 
@@ -42,7 +42,7 @@ export class StackSeriesComponent implements OnInit, OnDestroy {
   }
 
   public getSingleGroupDataSet(): string {
-    return JSON.stringify(this.groupDateSample, null, '\t');
+    return JSON.stringify(this.stackSeriesSample, null, '\t');
   }
 
   public setGroup(groupCount: groupCountSample): void {
@@ -53,10 +53,10 @@ export class StackSeriesComponent implements OnInit, OnDestroy {
   private loadSamples(): void {
     switch (this.groupCount) {
       case groupCountSample.one:
-        this.groupDateSample = this.dataSetService.series1GroupDataSet;
+        this.stackSeriesSample = this.dataSetService.series1GroupDataSet;
         break;
       case groupCountSample.two:
-        this.groupDateSample = this.dataSetService.series2GroupsDataSet;
+        this.stackSeriesSample = this.dataSetService.series2GroupsDataSet;
         break;
     }
     this.customSettings = this.dataSetService.customSettings;

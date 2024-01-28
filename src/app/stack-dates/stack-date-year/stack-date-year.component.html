@@ -6,45 +6,293 @@
     <button type="button" class="hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full flex flex-col text-start hover:bg-gray-100 p-3 md:p-5 rounded-xl dark:hs-tab-active:bg-white/[.05] dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 active" id="tabs-with-card-item-1" data-hs-tab="#tabs-with-card-1" aria-controls="tabs-with-card-1" role="tab">
       <span class="mt-5">
         <span class="hs-tab-active:text-blue-600 block font-semibold text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-gray-200">Polar chart</span>
-        <span class="hidden lg:block mt-2 text-gray-800 dark:text-gray-200">The highlights are turned off</span>
+        <span class="lg:block mt-2 text-gray-800 dark:text-gray-200">The highlights are turned off</span>
       </span>
     </button>
 
     <button type="button" class="hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full flex flex-col text-start hover:bg-gray-100 p-3 md:p-5 rounded-xl dark:hs-tab-active:bg-white/[.05] dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" id="tabs-with-card-item-2" data-hs-tab="#tabs-with-card-2" aria-controls="tabs-with-card-2" role="tab">
       <span class="mt-5">
         <span class="hs-tab-active:text-blue-600 block font-semibold text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-gray-200">Polar chart</span>
-        <span class="hidden lg:block mt-2 text-gray-800 dark:text-gray-200">Default settings</span>
+        <span class="lg:block mt-2 text-gray-800 dark:text-gray-200">Default settings</span>
       </span>
     </button>
 
     <button type="button" class="hs-tab-active:bg-gray-100 hs-tab-active:hover:border-transparent w-full flex flex-col text-start hover:bg-gray-100 p-3 md:p-5 rounded-xl dark:hs-tab-active:bg-white/[.05] dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" id="tabs-with-card-item-3" data-hs-tab="#tabs-with-card-3" aria-controls="tabs-with-card-3" role="tab">
       <span class="mt-5">
         <span class="hs-tab-active:text-blue-600 block font-semibold text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-gray-200">Used data set description</span>
-        <span class="hidden lg:block mt-2 text-gray-800 dark:text-gray-200">The data set in the example has been used for <b>two groups</b></span>
+        <span class="lg:block mt-2 text-gray-800 dark:text-gray-200">The data set in the example has been used for <b>two groups</b></span>
       </span>
     </button>
   </nav>
 
-  <app-dataset-generator></app-dataset-generator>
-
   <div class="mt-6 md:mt-8">
     <div id="tabs-with-card-1" role="tabpanel" aria-labelledby="tabs-with-card-item-1">
-      <div class="max-w-[1140px] lg:pb-32 relative">
-        <figure class="ms-auto me-20 relative z-[1] max-w-full w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]">
-          <div class="rounded-b-lg">
-            <ngx-polar-chart-stack [chartData]="groupDateSample" [chartSettings]="customSettings"></ngx-polar-chart-stack>
+      <div class="max-w-2xl px-4 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-8 mx-auto">
+        <div class="max-w-2xl">
+          <div class="flex justify-between items-center mb-6">
+            <div class="flex w-full sm:items-center gap-x-5 sm:gap-x-3">
+              <div class="flex-shrink-0">
+                <img class="h-12 w-12 rounded-full" src="./assets/app-icon.png" alt="App icon">
+              </div>
+
+              <div class="grow">
+                <div class="flex justify-between items-center gap-x-2">
+                  <div>
+                    <div class="hs-tooltip inline-block [--trigger:hover] [--placement:bottom]">
+                      <div class="hs-tooltip-toggle sm:mb-1 block text-start cursor-pointer">
+                        <span class="font-semibold text-gray-800 dark:text-gray-200">
+                          Using template, types and settings
+                        </span>
+                      </div>
+                    </div>
+                    <ul class="text-xs text-gray-500">
+                      <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:w-1 before:h-1 before:bg-gray-300 before:rounded-full dark:text-gray-400 dark:before:bg-gray-600">
+                        30 sec read
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </figure>
+          <div class="space-y-5 md:space-y-8">
+            <div class="max-w-[1140px] relative">
+              <figure class="ms-auto me-20 relative z-[1] max-w-full w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]">
+                <div class="rounded-b-lg">
+                  <ngx-polar-chart-stack [chartData]="stackDateSample" [chartSettings]="customSettings"></ngx-polar-chart-stack>
+                </div>
+              </figure>
+            </div>
+
+            <app-dataset-generator></app-dataset-generator>
+
+            <p class="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800">
+              Template code
+            </p>
+
+            <p class="text-lg text-gray-800 dark:text-gray-200">
+              &lt;ngx-polar-chart-stack<br>
+              &nbsp;&nbsp;&nbsp;[chartData]="stackDateSample"<br>
+              &nbsp;&nbsp;&nbsp;[chartSettings]="customSettings"&gt;<br>
+              &lt;ngx-polar-chart-stack&gt;
+            </p>
+
+            <figure>
+              <img class="w-full object-cover rounded-xl" src="./assets/stack-custom.png" alt="Template">
+              <figcaption class="mt-3 text-sm text-center text-gray-500">
+                Html template usage
+              </figcaption>
+            </figure>
+
+            <p class="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800">
+              Component code
+            </p>
+
+            <p class="text-lg text-gray-800 dark:text-gray-200">
+              import {{ '{' }}NgxChartData{{ '}' }} from '@vanavara/ngx-polar-chart';<br><br>
+
+              @Component({{ '{' }}<br>
+              ...<br>
+              {{ '}' }})<br>
+              export class MyComponent {{ '{' }}<br>
+              &nbsp;&nbsp;&nbsp;public stackDateSample: NgxChartData = null!;<br>
+              &nbsp;&nbsp;&nbsp;public sampleGroupAItems: NgxGroups&lt;Date&gt;[] = [];<br>
+              &nbsp;&nbsp;&nbsp;public sampleGroupBItems: NgxGroups&lt;Date&gt;[] = [];<br><br>
+              &nbsp;&nbsp;&nbsp;public customSettings: NgxPolarChartSettings = null!;<br>
+              {{ '}' }}
+            </p>
+
+            <div class="space-y-3">
+              <h3 class="text-2xl font-semibold dark:text-white">Library types</h3>
+
+              <p class="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800">
+                type NgxChartData = NgxDateGroup | NgxSeriesGroup;<br>
+                As we work with date NgxChartData is a type of NgxDateGroup<br>
+                this.sampleGroupAItems: NgxGroups&lt;Date&gt;[]<br>
+                this.sampleGroupBItems: NgxGroups&lt;Date&gt;[]
+              </p>
+
+              <p class="text-lg text-gray-800 dark:text-gray-200">
+                In this example there are two groups with items. Each item in the group describes a month of particular year/day and a value which that item has. A total count of items in each group is equal to 12 months. And we want to display these two groups by year on our chart.
+              </p>
+              <p class="text-lg text-gray-800 dark:text-gray-200">
+                for (let i = startMonth; i &lt; endMonth; i++) {{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sampleGroupAItems.push({{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: new Date(moment(now).year(), i, 1),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value: Math.floor(Math.random() * 101),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }});<br>
+                &nbsp;&nbsp;&nbsp;{{ '}' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sampleGroupBItems.push({{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: new Date(moment(now).year(), i, 1),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value: Math.floor(Math.random() * 101),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }});<br>
+                {{ '}' }}<br><br>
+
+                this.stackDateSample = {{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;groups: [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;groupBy: NgxGroupBy.year,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: 'Sample group A',<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items: sampleGroupAItems,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }},<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: 'Sample group B',<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items: sampleGroupBItems,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }}]<br>
+                {{ '}' }}
+              </p>
+
+              <p class="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800">
+                NgxPolarChartSettings code
+              </p>
+
+              <p class="text-lg text-gray-800 dark:text-gray-200">
+                Stack doesn't highlight average, minimum and weekends (as it's logically). So default settings could be pretty much good.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <h3 class="text-2xl font-semibold dark:text-white">We have more than one group</h3>
+              <p class="text-lg text-gray-800 dark:text-gray-200">
+                Just create a new group with items like sampleGroupAItems and add into stackDateSample variable
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div id="tabs-with-card-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-card-item-2">
-      <div class="max-w-[1140px] lg:pb-32 relative">
-        <figure class="ms-auto me-20 relative z-[1] max-w-full w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]">
-          <div class="rounded-b-lg">
-            <ngx-polar-chart-stack [chartData]="groupDateSample"></ngx-polar-chart-stack>
+      <div class="max-w-2xl px-4 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-8 mx-auto">
+        <div class="max-w-2xl">
+          <div class="flex justify-between items-center mb-6">
+            <div class="flex w-full sm:items-center gap-x-5 sm:gap-x-3">
+              <div class="flex-shrink-0">
+                <img class="h-12 w-12 rounded-full" src="./assets/app-icon.png" alt="App icon">
+              </div>
+
+              <div class="grow">
+                <div class="flex justify-between items-center gap-x-2">
+                  <div>
+                    <div class="hs-tooltip inline-block [--trigger:hover] [--placement:bottom]">
+                      <div class="hs-tooltip-toggle sm:mb-1 block text-start cursor-pointer">
+                        <span class="font-semibold text-gray-800 dark:text-gray-200">
+                          Using template, types and settings
+                        </span>
+                      </div>
+                    </div>
+                    <ul class="text-xs text-gray-500">
+                      <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:w-1 before:h-1 before:bg-gray-300 before:rounded-full dark:text-gray-400 dark:before:bg-gray-600">
+                        30 sec read
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </figure>
+          <div class="space-y-5 md:space-y-8">
+            <div class="max-w-[1140px] relative">
+              <figure class="ms-auto me-20 relative z-[1] max-w-full w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]">
+                <div class="rounded-b-lg">
+                  <ngx-polar-chart-stack [chartData]="stackDateSample"></ngx-polar-chart-stack>
+                </div>
+              </figure>
+            </div>
+
+            <app-dataset-generator></app-dataset-generator>
+
+            <p class="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800">
+              Template code
+            </p>
+
+            <p class="text-lg text-gray-800 dark:text-gray-200">
+              &lt;ngx-polar-chart-stack<br>
+              &nbsp;&nbsp;&nbsp;[chartData]="stackDateSample"<br>
+              &lt;ngx-polar-chart-stack&gt;
+            </p>
+
+            <figure>
+              <img class="w-full object-cover rounded-xl" src="./assets/stack-default.png" alt="Template">
+              <figcaption class="mt-3 text-sm text-center text-gray-500">
+                Html template usage
+              </figcaption>
+            </figure>
+
+            <p class="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800">
+              Component code
+            </p>
+
+            <p class="text-lg text-gray-800 dark:text-gray-200">
+              import {{ '{' }}NgxChartData{{ '}' }} from '@vanavara/ngx-polar-chart';<br><br>
+
+              @Component({{ '{' }}<br>
+              ...<br>
+              {{ '}' }})<br>
+              export class MyComponent {{ '{' }}<br>
+              &nbsp;&nbsp;&nbsp;public stackDateSample: NgxChartData = null!;<br>
+              &nbsp;&nbsp;&nbsp;public sampleGroupAItems: NgxGroups&lt;Date&gt;[] = [];<br>
+              &nbsp;&nbsp;&nbsp;public sampleGroupBItems: NgxGroups&lt;Date&gt;[] = [];<br>
+              {{ '}' }}
+            </p>
+
+            <div class="space-y-3">
+              <h3 class="text-2xl font-semibold dark:text-white">Library types</h3>
+
+              <p class="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800">
+                type NgxChartData = NgxDateGroup | NgxSeriesGroup;<br>
+                As we work with date NgxChartData is a type of NgxDateGroup<br>
+                this.sampleGroupAItems: NgxGroups&lt;Date&gt;[]<br>
+                this.sampleGroupBItems: NgxGroups&lt;Date&gt;[]
+              </p>
+
+              <p class="text-lg text-gray-800 dark:text-gray-200">
+                In this example there are two groups with items. Each item in the group describes a month of particular year/day and a value which that item has. A total count of items in each group is equal to 12 months. And we want to display these two groups by year on our chart.
+              </p>
+              <p class="text-lg text-gray-800 dark:text-gray-200">
+                for (let i = startMonth; i &lt; endMonth; i++) {{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sampleGroupAItems.push({{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: new Date(moment(now).year(), i, 1),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value: Math.floor(Math.random() * 101),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }});<br>
+                &nbsp;&nbsp;&nbsp;{{ '}' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sampleGroupBItems.push({{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: new Date(moment(now).year(), i, 1),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value: Math.floor(Math.random() * 101),<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }});<br>
+                {{ '}' }}<br><br>
+
+                this.stackDateSample = {{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;groups: [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;groupBy: NgxGroupBy.year,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: 'Sample group A',<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items: sampleGroupAItems,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }},<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ '{' }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: 'Sample group B',<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items: sampleGroupBItems,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }}]<br>
+                {{ '}' }}
+              </p>
+
+              <p class="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800">
+                NgxPolarChartSettings code
+              </p>
+
+              <p class="text-lg text-gray-800 dark:text-gray-200">
+                In this example we use null for the settings parameter. Default settings are being applied.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <h3 class="text-2xl font-semibold dark:text-white">We have more than one group</h3>
+              <p class="text-lg text-gray-800 dark:text-gray-200">
+                Just create a new group with items like sampleGroupAItems and add into stackDateSample variable
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -59,7 +307,7 @@
             </div>
             <div class="flex justify-center items-center w-full h-full bg-gray-200 text-[1.0rem] text-gray-800 rounded-sm sm:text-[1.0rem] dark:bg-gray-700 dark:text-gray-200">
               <p>
-                ngx-polar-chart-stack [chartData]="..." [chartSettings]=""
+                &lt;ngx-polar-chart-stack [chartData]="..." [chartSettings]=""&gt;
               </p>
             </div>
           </div>
